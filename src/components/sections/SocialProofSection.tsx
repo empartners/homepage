@@ -256,7 +256,7 @@ const SocialProofSection = () => {
               >
                 {/* 카드 배경 이미지 */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 rounded-2xl"
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 rounded-2xl"
                   style={{ backgroundImage: `url(${case_.backgroundImage})` }}
                 />
                 
@@ -320,7 +320,7 @@ const SocialProofSection = () => {
                   
                   <div className="bg-blue-900/30 border border-blue-400/30 rounded-lg p-3">
                     <Quote className="w-4 h-4 text-blue-400 mb-2" />
-                    <p className="text-blue-200 text-sm italic leading-relaxed">
+                    <p className="text-white text-sm italic leading-relaxed">
                       "{case_.testimonial}"
                     </p>
                   </div>

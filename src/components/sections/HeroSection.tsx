@@ -7,6 +7,42 @@ import { ChevronRight } from 'lucide-react';
 import { COMPANY_CONFIG } from '@/config/company';
 import ConsultationModal from '@/components/common/ConsultationModal';
 
+// 타이핑 효과 컴포넌트
+const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (currentIndex < text.length) {
+        const nextTimer = setTimeout(() => {
+          setDisplayedText(prev => prev + text[currentIndex]);
+          setCurrentIndex(prev => prev + 1);
+        }, 80); // 80ms마다 한 글자씩
+        
+        return () => clearTimeout(nextTimer);
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, text, delay]);
+
+  return (
+    <span className="text-[#4081ed] text-3xl md:text-4xl font-black">
+      {displayedText}
+      {currentIndex < text.length && (
+        <motion.span
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+          className="text-[#4081ed]"
+        >
+          |
+        </motion.span>
+      )}
+    </span>
+  );
+};
+
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -93,66 +129,9 @@ const HeroSection = () => {
               복잡한 서류, 까다로운 심사 기준, 낮은 승인률...
               <br />
               {COMPANY_CONFIG.name}의 전문 컨설팅으로 
-              <motion.span
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: 0.5,
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20
-                }}
-                className="relative inline-block mx-2"
-              >
-                <motion.strong
-                  animate={{ 
-                    textShadow: [
-                      "0 0 20px rgba(64, 129, 237, 0.8)",
-                      "0 0 30px rgba(64, 129, 237, 1)",
-                      "0 0 20px rgba(64, 129, 237, 0.8)"
-                    ],
-                    scale: [1, 1.05, 1]
-                  }}
-                  transition={{ 
-                    duration: 2, 
-                    repeat: Infinity, 
-                    ease: "easeInOut" 
-                  }}
-                  className="text-[#4081ed] text-3xl md:text-4xl font-black bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] bg-clip-text text-transparent"
-                >
-                  {COMPANY_CONFIG.business.heroApprovalRate} 승인률
-                </motion.strong>
-                
-                {/* 글로우 효과 배경 */}
-                <motion.div
-                  animate={{ 
-                    opacity: [0.3, 0.7, 0.3],
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    duration: 2, 
-                    repeat: Infinity, 
-                    ease: "easeInOut" 
-                  }}
-                  className="absolute inset-0 bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] rounded-lg blur-lg -z-10"
-                />
-                
-                {/* 번쩍이는 효과 */}
-                <motion.div
-                  animate={{ 
-                    x: [-100, 100],
-                    opacity: [0, 0.8, 0]
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    repeatDelay: 2
-                  }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 -skew-x-12"
-                />
-              </motion.span>
+              <span className="relative inline-block mx-2">
+                <TypewriterText text={COMPANY_CONFIG.business.heroApprovalRate + " 승인률"} delay={200} />
+              </span>
               을 경험하세요
             </div>
           </div>

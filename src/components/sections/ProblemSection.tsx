@@ -233,7 +233,10 @@ const ProblemSection = () => {
                   />
                   
                   {/* 그라데이션 오버레이 */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${problem.color} opacity-50`} />
+                  <div 
+                    className={`absolute inset-0 bg-gradient-to-br ${problem.color}`}
+                    style={{ opacity: 0.1 }}
+                  />
                   
                   {/* 배경 애니메이션 효과 */}
                   <motion.div

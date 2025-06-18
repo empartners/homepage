@@ -12,9 +12,9 @@ export const COMPANY_CONFIG = {
     description: "정책자금 신청부터 승인까지 원스톱 관리. 1:1 맞춤 컨설팅으로 높은 승인률을 자랑하는",
     experience: "12년간",
     approvalRate: "89%",
-    heroApprovalRate: "92%",
-    establishedYear: "2012년 3월",
-    employees: "25명"
+    heroApprovalRate: "95%",
+    establishedYear: "2024년 7월",
+    employees: "2명"
   },
   
   // 연락처 정보
