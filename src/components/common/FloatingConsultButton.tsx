@@ -2,13 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, ChevronUp } from 'lucide-react';
-import ConsultationModal from '@/components/common/ConsultationModal';
+import { MessageCircle, ChevronUp, Instagram, ExternalLink } from 'lucide-react';
 import { useIsClient } from '@/hooks/useIsClient';
 
 const FloatingConsultButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const isClient = useIsClient();
 
   useEffect(() => {
@@ -28,15 +26,25 @@ const FloatingConsultButton = () => {
 
   const scrollToTop = () => {
     if (isClient) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     }
   };
 
   const handleConsultationClick = () => {
-    setIsModalOpen(true);
+    window.open('https://empartners.co.kr/slide', '_blank');
+  };
+
+  const handleInstagramClick = () => {
+    
+    window.open('https://www.instagram.com/em_partner_s', '_blank');
+  };
+
+  const handleBlogClick = () => {
+    
+    window.open('https://blog.naver.com/empartners', '_blank');
   };
 
   return (
@@ -91,14 +99,46 @@ const FloatingConsultButton = () => {
               </div>
             </motion.button>
 
+            {/* 인스타그램 버튼 */}
+            <motion.button
+              onClick={handleInstagramClick}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              <Instagram size={24} />
+              
+              {/* 툴팁 */}
+              <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                인스타그램
+                <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+              </div>
+            </motion.button>
+
+            {/* 블로그 버튼 */}
+            <motion.button
+              onClick={handleBlogClick}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              <ExternalLink size={24} />
+              
+              {/* 툴팁 */}
+              <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                네이버 블로그
+                <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+              </div>
+            </motion.button>
+
             {/* 맨 위로 버튼 */}
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-gray-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 group"
+              className="bg-white text-gray-600 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 group"
             >
-              <ChevronUp size={20} />
+              <ChevronUp size={24} />
               
               {/* 툴팁 */}
               <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -110,11 +150,7 @@ const FloatingConsultButton = () => {
         )}
       </AnimatePresence>
 
-      {/* 상담 모달 */}
-      <ConsultationModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+
     </>
   );
 };

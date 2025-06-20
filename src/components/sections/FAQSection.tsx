@@ -109,70 +109,126 @@ const FAQSection = () => {
           ))}
         </div>
 
-        {/* 추가 도움말 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-brand-main/5 rounded-2xl p-8 border border-brand-main/10">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              더 궁금한 것이 있으신가요?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              정책자금 전문가가 직접 상담해드립니다. 
-              <br />
-              기업별 맞춤 솔루션을 제안받아보세요.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-brand-main hover:bg-brand-dark text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
-              >
-                무료 전화 상담
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-brand-main text-brand-main hover:bg-brand-main hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200"
-              >
-                카카오톡 상담
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* 연락처 정보 */}
+
+        {/* 바로가기 카드 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-            <div className="text-2xl mb-2">📞</div>
-            <h4 className="font-semibold text-gray-900 mb-2">전화 상담</h4>
-            <p className="text-gray-600 text-sm">평일 09:00~18:00</p>
-            <p className="text-brand-main font-semibold">02-1234-5678</p>
-          </div>
-          
-          <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-            <div className="text-2xl mb-2">💬</div>
-            <h4 className="font-semibold text-gray-900 mb-2">카카오톡</h4>
-            <p className="text-gray-600 text-sm">24시간 상담 가능</p>
-            <p className="text-brand-main font-semibold">@EM파트너스</p>
-          </div>
-          
-          <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-            <div className="text-2xl mb-2">✉️</div>
-            <h4 className="font-semibold text-gray-900 mb-2">이메일</h4>
-            <p className="text-gray-600 text-sm">빠른 답변 보장</p>
-            <p className="text-brand-main font-semibold">info@empartners.co.kr</p>
-          </div>
+          {/* 정책자금 바로가기 */}
+          <motion.a
+            href="/fund"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer h-48"
+          >
+            {/* 왼쪽 배경 이미지 영역 */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ 
+                backgroundImage: 'url(/images/home-card-fund.png)',
+                clipPath: 'polygon(0 0, 70% 0, 50% 100%, 0 100%)'
+              }}
+            />
+            <div 
+              className="absolute inset-0 bg-black/30"
+              style={{ 
+                clipPath: 'polygon(0 0, 70% 0, 50% 100%, 0 100%)'
+              }}
+            />
+            
+            {/* 오른쪽 흰색 배경 영역 */}
+            <div 
+              className="absolute inset-0 bg-white"
+              style={{ 
+                clipPath: 'polygon(70% 0, 100% 0, 100% 100%, 50% 100%)'
+              }}
+            />
+            
+            <div className="relative z-10 p-8 h-full flex">
+              {/* 왼쪽 콘텐츠 */}
+              <div className="flex-1 text-white flex flex-col justify-end">
+                <h3 className="text-2xl font-bold mb-2">정책자금</h3>
+                <p className="text-white/90 text-sm">
+                  소상공인부터 중소기업까지<br />
+                  다양한 정책자금 지원
+                </p>
+              </div>
+              
+              {/* 오른쪽 바로가기 */}
+              <div className="flex-1 flex justify-end items-start pt-4">
+                <div className="flex items-center text-black font-semibold">
+                  <span>바로가기</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="ml-2"
+                  >
+                    →
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.a>
+
+          {/* 지원사업 바로가기 */}
+          <motion.a
+            href="/support"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer h-48"
+          >
+            {/* 왼쪽 배경 이미지 영역 */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ 
+                backgroundImage: 'url(/images/home-card-office.png)',
+                clipPath: 'polygon(0 0, 70% 0, 50% 100%, 0 100%)'
+              }}
+            />
+            <div 
+              className="absolute inset-0 bg-black/30"
+              style={{ 
+                clipPath: 'polygon(0 0, 70% 0, 50% 100%, 0 100%)'
+              }}
+            />
+            
+            {/* 오른쪽 흰색 배경 영역 */}
+            <div 
+              className="absolute inset-0 bg-white"
+              style={{ 
+                clipPath: 'polygon(70% 0, 100% 0, 100% 100%, 50% 100%)'
+              }}
+            />
+            
+            <div className="relative z-10 p-8 h-full flex">
+              {/* 왼쪽 콘텐츠 */}
+              <div className="flex-1 text-white flex flex-col justify-end">
+                <h3 className="text-2xl font-bold mb-2">지원사업</h3>
+                <p className="text-white/90 text-sm">
+                  정부·지자체·민간<br />
+                  맞춤형 지원사업 안내
+                </p>
+              </div>
+              
+              {/* 오른쪽 바로가기 */}
+              <div className="flex-1 flex justify-end items-start pt-4">
+                <div className="flex items-center text-black font-semibold">
+                  <span>바로가기</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="ml-2"
+                  >
+                    →
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.a>
         </motion.div>
       </div>
     </section>

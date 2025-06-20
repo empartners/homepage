@@ -47,7 +47,7 @@ const SocialProofSection = () => {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative pt-0 pb-8 md:py-20 overflow-hidden">
       {/* 배경 그라데이션 */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
       
@@ -169,22 +169,39 @@ const SocialProofSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 mt-16 md:mt-0"
         >
-          <div className="bg-white text-navy-900 py-4 px-8 inline-block mb-8">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-800">
+          <div className="inline-block relative mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-black text-white leading-tight whitespace-nowrap relative z-10 pb-2">
               실제 성공사례로 증명하는 신뢰
             </h2>
+            {/* 두꺼운 밑줄 강조 */}
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="absolute bottom-0 left-0 h-3 md:h-4 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 shadow-lg"
+            />
+            {/* 글로우 효과 */}
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: "100%", opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="absolute bottom-0 left-0 h-3 md:h-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 blur-sm opacity-60"
+            />
           </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-bold mt-4 md:mt-0"
           >
-            수많은 기업들이 EM파트너스와 함께 정책자금을 성공적으로 확보했습니다.<br />
-            실제 고객들의 생생한 후기와 성과를 확인해보세요
+            <span className="block md:inline">수많은 기업들이 EM파트너스와 함께 </span>
+            <span className="block md:inline mb-2 md:mb-0">정책자금을 성공적으로 확보했습니다.</span>
+            <span className="block mt-2 md:mt-1">실제 고객들의 생생한 후기와 성과를 확인해보세요</span>
           </motion.p>
         </motion.div>
 
@@ -219,17 +236,17 @@ const SocialProofSection = () => {
               />
             </motion.div>
             
-            <h3 className="text-2xl font-bold text-white relative z-10">
+            <h3 className="text-lg md:text-2xl font-bold text-white relative z-10 whitespace-nowrap">
               EM 파트너스의 주요 성공사례
             </h3>
             <Link href="/success">
               <motion.button
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-blue-900 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center space-x-2 shadow-lg"
+                className="bg-gradient-to-r from-blue-600 to-blue-900 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center space-x-2 shadow-lg text-sm"
               >
                 <span>더보기</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3 h-3" />
               </motion.button>
             </Link>
           </div>

@@ -12,7 +12,7 @@ const FundPage = () => {
   const tabs = [
     {
       id: 'small-business',
-      label: '소상공인 정책자금',
+      label: '소상공인 정책',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -79,7 +79,7 @@ const FundPage = () => {
                 </div>
                 <div className="bg-white rounded-lg p-4">
                   <h4 className="font-semibold text-gray-900 mb-2">처리 기간</h4>
-                  <p className="text-sm text-gray-600">2주 ~ 1개월</p>
+                  <p className="text-sm text-gray-600">2주 ~ 1개월 (자금이 있다는 가정)</p>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ const FundPage = () => {
     },
     {
       id: 'refinancing',
-      label: '소상공인 대환대출',
+      label: '대환대출',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -99,8 +99,8 @@ const FundPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 rounded-xl p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-green-900 mb-6">지원 대상</h3>
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
             <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm">
               <p className="text-gray-700 leading-relaxed">
                 NCB 신용점수 839점 이하, 연 7% 이상 고금리 대출 보유 소상공인
@@ -110,31 +110,31 @@ const FundPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-semibold text-green-900">지원 내용</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-blue-900">지원 내용</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <DollarSign className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                  <DollarSign className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 한도</h4>
                     <p className="text-gray-600">업체당 최대 5천만 원</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Percent className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                  <Percent className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 금리</h4>
                     <p className="text-gray-600">고정 4.5%</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Calendar className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                  <Calendar className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">상환 조건</h4>
                     <p className="text-gray-600">10년 분할상환</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Shield className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">담보/보증</h4>
                     <p className="text-gray-600">은행 조건 따라 차등(보증서 제출 가능)</p>
@@ -166,7 +166,7 @@ const FundPage = () => {
     },
     {
       id: 'new-growth',
-      label: '중진공 신성장기반자금',
+      label: '신성장기반',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -176,8 +176,8 @@ const FundPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 rounded-xl p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-purple-900 mb-6">지원 대상</h3>
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
             <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm">
               <p className="text-gray-700 leading-relaxed">
                 업력 7년 이상 혁신·ESG·스마트팩토리 중소기업
@@ -187,31 +187,31 @@ const FundPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-semibold text-purple-900">지원 내용</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-blue-900">지원 내용</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <DollarSign className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <DollarSign className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 한도</h4>
                     <p className="text-gray-600">최대 60억 원<br />(운전자금은 연 5억 원 이하)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Percent className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <Percent className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 금리</h4>
                     <p className="text-gray-600">기준금리 + 0.5%p (우대 시 차감 가능)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Calendar className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <Calendar className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">상환 조건</h4>
                     <p className="text-gray-600">시설자금 10년(거치 포함), 운전자금 5년(2년 거치 포함)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Shield className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">담보/보증</h4>
                     <p className="text-gray-600">신용·담보·보증 복합 가능</p>
@@ -243,7 +243,7 @@ const FundPage = () => {
     },
     {
       id: 'startup-support',
-      label: '중진공 창업기업지원자금',
+      label: '창업지원',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -253,8 +253,8 @@ const FundPage = () => {
             </p>
           </div>
 
-          <div className="bg-orange-50 rounded-xl p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-orange-900 mb-6">지원 대상</h3>
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
             <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm">
               <p className="text-gray-700 leading-relaxed">
                 업력 5년 이하 창업·예비창업 기업
@@ -264,31 +264,31 @@ const FundPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-semibold text-orange-900">지원 내용</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-blue-900">지원 내용</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <DollarSign className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
+                  <DollarSign className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 한도</h4>
                     <p className="text-gray-600">최대 30억 원<br />(운전자금 포함 5억 원 이하)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Percent className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
+                  <Percent className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 금리</h4>
                     <p className="text-gray-600">기준금리 + 마진(E/L) (분기별 변동)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Calendar className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
+                  <Calendar className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">상환 조건</h4>
                     <p className="text-gray-600">시설자금 10년(거치 포함), 운전자금 3년(일부 거치)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Shield className="w-6 h-6 text-orange-600 mt-1 flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">담보/보증</h4>
                     <p className="text-gray-600">담보, 보증서, 신용조합 활용</p>
@@ -320,7 +320,7 @@ const FundPage = () => {
     },
     {
       id: 'market-entry',
-      label: '신시장진출지원자금',
+      label: '해외진출',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -330,8 +330,8 @@ const FundPage = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 rounded-xl p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-red-900 mb-6">지원 대상</h3>
+          <div className="bg-blue-50 rounded-xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
             <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm">
               <p className="text-gray-700 leading-relaxed">
                 수출 실적 1달러 이상~10만달러 미만 기업, 수출지원사업 참여기업, 기술수출 기업 등
@@ -341,31 +341,31 @@ const FundPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-semibold text-red-900">지원 내용</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-blue-900">지원 내용</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <DollarSign className="w-6 h-6 text-red-600 mt-1 flex-shrink-0" />
+                  <DollarSign className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 한도</h4>
                     <p className="text-gray-600">운전자금 연 5억 원, 시설자금 직접 30억·이차보전 포함</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Percent className="w-6 h-6 text-red-600 mt-1 flex-shrink-0" />
+                  <Percent className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">지원 금리</h4>
                     <p className="text-gray-600">기준금리(변동 또는 고정), 이차보전 가능</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Calendar className="w-6 h-6 text-red-600 mt-1 flex-shrink-0" />
+                  <Calendar className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">상환 조건</h4>
                     <p className="text-gray-600">운전자금 5년 내(2년 거치), 시설자금 10년 내(담보 4년·신용 3년 거치)</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Shield className="w-6 h-6 text-red-600 mt-1 flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">담보/보증</h4>
                     <p className="text-gray-600">직접대출 및 이차보전 형태</p>
@@ -393,16 +393,7 @@ const FundPage = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-6 md:p-8 text-white">
-            <div className="flex items-center space-x-3 mb-4">
-              <Globe className="w-8 h-8" />
-              <h3 className="text-xl font-bold">해외진출 특화 지원</h3>
-            </div>
-            <p className="text-red-100 leading-relaxed">
-              해외 시장 진출을 위한 특별 설계된 자금으로, 수출 실적과 지원사업 참여 경험을 바탕으로 
-              글로벌 경쟁력을 갖춘 기업의 성장을 지원합니다.
-            </p>
-          </div>
+
         </div>
       )
     }

@@ -27,13 +27,12 @@ export default function StructuredData({ type = 'organization', data }: Structur
           },
           address: {
             '@type': 'PostalAddress',
-            streetAddress: COMPANY_CONFIG.address.street,
-            addressLocality: COMPANY_CONFIG.address.city,
-            postalCode: COMPANY_CONFIG.address.postalCode,
+            streetAddress: `${COMPANY_CONFIG.contact.address} ${COMPANY_CONFIG.contact.addressDetail}`,
+            addressLocality: '부산시 남구',
             addressCountry: 'KR'
           },
           sameAs: [
-            `https://blog.naver.com/${COMPANY_CONFIG.social?.blog || 'empareners'}`
+            `https://blog.naver.com/empartners`
           ]
         }
       

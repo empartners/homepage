@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle, Instagram, ExternalLink, Home } from 'lucide-react';
 import { COMPANY_CONFIG } from '@/config/company';
-import ConsultationModal from '@/components/common/ConsultationModal';
 import { useIsClient } from '@/hooks/useIsClient';
 
 // 메뉴 아이템 컴포넌트 메모이제이션
@@ -23,18 +22,18 @@ const MenuItem = memo(({ item, isActive, onClick }: {
       onMouseEnter={() => item.subItems && setIsDropdownOpen(true)}
       onMouseLeave={() => setIsDropdownOpen(false)}
     >
-      <Link
-        href={item.href}
-        className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-150 flex items-center space-x-2 will-change-transform ${
-          isActive
-            ? 'text-white bg-white/10 shadow-lg'
-            : 'text-white/80 hover:text-white hover:bg-white/5'
-        }`}
-        onClick={onClick}
+  <Link
+    href={item.href}
+    className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-150 flex items-center space-x-2 will-change-transform ${
+      isActive
+        ? 'text-white bg-white/10 shadow-lg'
+        : 'text-white/80 hover:text-white hover:bg-white/5'
+    }`}
+    onClick={onClick}
         style={{ transform: 'translateZ(0)' }}
-      >
-        {item.icon && <item.icon size={18} />}
-        <span>{item.name}</span>
+  >
+    {item.icon && <item.icon size={18} />}
+    <span>{item.name}</span>
         {item.subItems && (
           <svg 
             className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
@@ -45,15 +44,15 @@ const MenuItem = memo(({ item, isActive, onClick }: {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         )}
-        {isActive && (
-          <motion.div
-            layoutId="navActiveTab"
-            className="absolute bottom-0 left-0 right-0 h-0.5 bg-white rounded-full"
-            initial={false}
-            transition={{ type: "tween", duration: 0.15 }}
-          />
-        )}
-      </Link>
+    {isActive && (
+      <motion.div
+        layoutId="navActiveTab"
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-white rounded-full"
+        initial={false}
+        transition={{ type: "tween", duration: 0.15 }}
+      />
+    )}
+  </Link>
 
       {/* 드롭다운 메뉴 */}
       {item.subItems && (
@@ -116,7 +115,6 @@ MobileMenuItem.displayName = 'MobileMenuItem';
 const Navigation = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
   const isClient = useIsClient();
 
@@ -128,9 +126,9 @@ const Navigation = memo(() => {
       href: '/about',
       subItems: [
         { name: '회사소개', href: '/about?tab=company' },
-        { name: 'CEO 인사말', href: '/about?tab=ceo' },
-        { name: '연혁', href: '/about?tab=history' },
-        { name: '조직도', href: '/about?tab=organization' },
+        //{ name: 'CEO 인사말', href: '/about?tab=ceo' },
+        //{ name: '연혁', href: '/about?tab=history' },
+        // { name: '조직도', href: '/about?tab=organization' },
         { name: '오시는길', href: '/about?tab=location' }
       ]
     },
@@ -138,8 +136,8 @@ const Navigation = memo(() => {
       name: '성공사례', 
       href: '/success',
       subItems: [
-        { name: '주요 성과', href: '/success?tab=overview' },
-        { name: '성공사례', href: '/success?tab=cases' }
+        //{ name: '주요 성과', href: '/success?tab=overview' },
+        { name: 'EM파트너스 성공사례', href: '/success?tab=cases' }
       ]
     },
     { 
@@ -174,7 +172,7 @@ const Navigation = memo(() => {
   }, [pathname]);
 
   const handleConsultationClick = useCallback(() => {
-    setIsModalOpen(true);
+    window.open('https://empartners.co.kr/slide', '_blank');
     setIsOpen(false);
   }, []);
 
@@ -299,21 +297,15 @@ const Navigation = memo(() => {
               <div className="w-px h-6 bg-white/30"></div>
               <div className="flex items-center space-x-3">
                 <a
-                  href="#"
+                  href="https://pf.kakao.com/_xokkxkG"
                   className="text-white/80 hover:text-white transition-all duration-150 hover:scale-110 p-2 rounded-full hover:bg-white/5 will-change-transform"
                   title="카카오톡 상담"
                 >
                   <MessageCircle size={20} />
                 </a>
+
                 <a
-                  href="#"
-                  className="text-white/80 hover:text-white transition-all duration-150 hover:scale-110 p-2 rounded-full hover:bg-white/5 will-change-transform"
-                  title="인스타그램"
-                >
-                  <Instagram size={20} />
-                </a>
-                <a
-                  href="#"
+                  href="https://blog.naver.com/empareners"
                   className="text-white/80 hover:text-white transition-all duration-150 hover:scale-110 p-2 rounded-full hover:bg-white/5 will-change-transform"
                   title="블로그"
                 >
@@ -327,7 +319,7 @@ const Navigation = memo(() => {
               onClick={handleConsultationClick}
               className="hidden lg:block ml-4 bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-white/40 hover:scale-105 will-change-transform"
             >
-              상담신청
+              AI정책자금 진단받기
             </button>
 
             {/* 모바일 메뉴 버튼 */}
@@ -435,11 +427,7 @@ const Navigation = memo(() => {
         </div>
       </nav>
 
-      {/* 상담 모달 */}
-      <ConsultationModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+
     </>
   );
 });

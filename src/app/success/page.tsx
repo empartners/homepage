@@ -71,6 +71,42 @@ const SuccessPage = () => {
       testimonial: "사업 시작한 지 얼마 안 돼서 자금 지원은 꿈도 못 꿨는데, 컨설턴트님이 온라인 기반 매출 흐름까지 분석해서 방향을 잡아주셨어요. 덕분에 빠르게 자금을 마련할 수 있었습니다.",
       icon: Smartphone,
       backgroundImage: "/images/success-com/com-e.png"
+    },
+    {
+      company: "피자 전문점 F사",
+      industry: "외식업(피자 전문점)",
+      amount: "7,000만원",
+      program: "정책자금",
+      description: "업력 3년 차 자영업자의 운영자금 및 확장자금 확보를 위한 정책자금 전략 수립 및 사업계획서 작성 지원",
+      achievement: "정책자금 7천만 원 승인 성공, 고금리 대출에서 정책자금으로 전환하며 자금 운용 부담 완화",
+      period: "약 1개월",
+      testimonial: "담보대출과 신용대출까지 2.5억의 기대출에도 승인이 됐어요. 승인받은 금액으로 시설투자 및 가게 확장 계획 중입니다.",
+      icon: Utensils,
+      backgroundImage: "/images/success-com/com-f.png"
+    },
+    {
+      company: "세탁업체 G사",
+      industry: "세탁업",
+      amount: "6,000만원",
+      program: "부산신용보증재단 정책자금",
+      description: "업력 1년 차 창업자의 초기 자금 확보를 위한 정책자금 전략 수립 및 사업계획서 작성 지원",
+      achievement: "창업 1년 미만의 신생 사업장임에도 불구하고 부산신용보증재단 정책자금 6천만 원 승인 성공",
+      period: "약 1개월",
+      testimonial: "6천만원 정책자금으로 세탁 설비를 업그레이드하고 추가 인력을 채용했어요.",
+      icon: Building,
+      backgroundImage: "/images/success-com/com-g.png"
+    },
+    {
+      company: "숙박업체 H사",
+      industry: "숙박업",
+      amount: "1억원",
+      program: "서울신용보증재단 정책자금",
+      description: "기존 거절 이력을 극복하고 유연하고 실질적인 접근을 통한 정책자금 전략 수립 및 완성도 높은 서류구성",
+      achievement: "기존 거절 이력을 극복하고 서울신용보증재단을 통해 1억원 승인 성공",
+      period: "1개월",
+      testimonial: "여러 번 거절당하고는 포기하려던 찰나에 이렇게 좋은 조건으로 1억이 승인될 줄은 몰랐습니다. EM파트너스는 단순한 컨설팅이 아니라 사업자의 마음을 이해하고 함께 뛰어주는 팀이라는 걸 느꼈습니다.",
+      icon: Building2,
+      backgroundImage: "/images/success-com/com-h.png"
     }
   ];
 
@@ -85,12 +121,13 @@ const SuccessPage = () => {
   };
 
   const tabs = [
+    /* 성공사례 탭 제거 - 내용은 주석으로 보존
     {
       id: 'cases',
       label: '성공사례',
       content: (
         <div className="space-y-8">
-          {/* 성공사례 카드들 - SocialProofSection 스타일 적용 */}
+          {/* 성공사례 카드들 - SocialProofSection 스타일 적용 *\/}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {successCases.map((case_, index) => (
               <motion.div
@@ -114,16 +151,16 @@ const SuccessPage = () => {
                   background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.6) 100%)'
                 }}
               >
-                {/* 카드 배경 이미지 */}
+                {/* 카드 배경 이미지 *\/}
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 rounded-2xl"
                   style={{ backgroundImage: `url(${case_.backgroundImage})` }}
                 />
                 
-                {/* 배경 이미지 오버레이 */}
+                {/* 배경 이미지 오버레이 *\/}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-blue-900/40 to-slate-800/60 rounded-2xl" />
                 
-                {/* 배경 효과 */}
+                {/* 배경 효과 *\/}
                 <motion.div
                   animate={{
                     scale: [1, 1.1, 1],
@@ -186,7 +223,7 @@ const SuccessPage = () => {
                   </div>
                 </div>
                 
-                {/* 호버 효과 */}
+                {/* 호버 효과 *\/}
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
@@ -197,9 +234,9 @@ const SuccessPage = () => {
             ))}
           </div>
 
-          {/* CTA 섹션 - success-bg.jpg 배경 개선 */}
+          {/* CTA 섹션 - success-bg.jpg 배경 개선 *\/}
           <div className="relative rounded-2xl overflow-hidden">
-            {/* 배경 이미지 - 중간 부분 표시 및 최적화 */}
+            {/* 배경 이미지 - 중간 부분 표시 및 최적화 *\/}
             <div 
               className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
               style={{ 
@@ -209,11 +246,11 @@ const SuccessPage = () => {
               }}
             />
             
-            {/* 개선된 오버레이 - 배경이 더 잘 보이도록 투명도 조정 */}
+            {/* 개선된 오버레이 - 배경이 더 잘 보이도록 투명도 조정 *\/}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-800/60 to-blue-900/70" />
             <div className="absolute inset-0 bg-black/20" />
             
-            {/* 콘텐츠 */}
+            {/* 콘텐츠 *\/}
             <div className="relative z-10 p-8 lg:p-12 text-white text-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -224,8 +261,7 @@ const SuccessPage = () => {
                 <h3 className="text-2xl lg:text-3xl font-bold mb-6 drop-shadow-2xl text-white">
                   여러분의 성공사례도 만들어보세요
                 </h3>
-                <p className="text-blue-100 mb-8 leading-relaxed drop-shadow-lg text-lg lg:text-xl">
-                  EM파트너스와 함께 정책자금을 통한 성장의 기회를 잡으세요.<br />
+                <p className="text-blue-100 mb-8 leading-relaxed drop-shadow-lg text-lg lg:text-xl">                  
                   무료 상담을 통해 여러분께 맞는 최적의 솔루션을 제안해드립니다.
                 </p>
                 <motion.button 
@@ -238,20 +274,21 @@ const SuccessPage = () => {
               </motion.div>
             </div>
             
-            {/* 추가 장식 효과 */}
+            {/* 추가 장식 효과 *\/}
             <div className="absolute top-4 right-4 w-16 h-16 bg-white/5 rounded-full blur-xl"></div>
             <div className="absolute bottom-4 left-4 w-12 h-12 bg-blue-400/10 rounded-full blur-lg"></div>
           </div>
         </div>
       )
     },
+    */
     {
       id: 'grid',
       label: '그리드 뷰',
       content: (
         <div className="space-y-8">
-          {/* 간소화된 정사각형 카드 그리드 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* 간소화된 정사각형 카드 그리드 - 모바일에서 2개씩 */}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {successCases.map((case_, index) => (
               <motion.div
                 key={index}
@@ -259,7 +296,7 @@ const SuccessPage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ 
                   duration: 0.6, 
-                  delay: index * 0.1,
+                  delay: 0,
                   type: "spring",
                   stiffness: 120
                 }}
@@ -305,12 +342,10 @@ const SuccessPage = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 + 0.2 }}
-                      className="mb-6"
+                      className="mb-4 md:mb-6"
                     >
-                      <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center mx-auto mb-4 border border-white/30">
-                        <case_.icon className="w-10 h-10 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white drop-shadow-lg mb-2">
+                     
+                      <h3 className="text-sm md:text-xl font-bold text-white drop-shadow-lg mb-2">
                         {case_.industry}
                       </h3>
                     </motion.div>
@@ -323,9 +358,8 @@ const SuccessPage = () => {
                       className="relative"
                     >
                       {/* 메인 금액 표시 */}
-                      <div className="bg-gradient-to-br from-white/90 to-white/80 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-white/40">
-                        <div className="text-4xl font-black text-gray-900 drop-shadow-sm mb-1">{case_.amount}</div>
-                        <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
+                      <div className="bg-gradient-to-br from-white/90 to-white/80 backdrop-blur-md rounded-xl md:rounded-2xl p-3 md:p-6 shadow-2xl border border-white/40">
+                        <div className="text-xl md:text-4xl font-black text-gray-900 drop-shadow-sm mb-1">{case_.amount}</div>                 
                       </div>
                       
                       {/* 글로우 효과 */}
@@ -339,7 +373,7 @@ const SuccessPage = () => {
                         opacity: [0.6, 1, 0.6]
                       }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      className="mt-6 text-white/80 text-sm font-medium bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20"
+                      className="mt-4 md:mt-6 text-white/80 text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-white/20"
                     >
                       클릭하여 자세히 보기
                     </motion.div>
@@ -368,7 +402,7 @@ const SuccessPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ 
                 duration: 0.6, 
-                delay: successCases.length * 0.1,
+                delay: 0,
                 type: "spring",
                 stiffness: 120
               }}
@@ -383,55 +417,40 @@ const SuccessPage = () => {
                 transition={{ duration: 0.3 }}
                 className="relative aspect-square rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-200/20 cursor-pointer"
               >
-                {/* 깔끔한 그라데이션 배경 */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100" />
+                {/* 배경 이미지 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: 'url(/images/success-com/com-more.png)' }}
+                />
                 
-                {/* 미묘한 패턴 */}
-                <div className="absolute inset-0 opacity-30">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1)_0%,transparent_50%)]"></div>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.08)_0%,transparent_50%)]"></div>
-                </div>
+                {/* 오버레이 */}
+                <div className="absolute inset-0 bg-black/60" />
                 
                 {/* 카드 내용 */}
                 <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
-                  {/* 아이콘 영역 */}
+                  {/* 정책자금사례 더보기 */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: successCases.length * 0.1 + 0.2 }}
-                    className="mb-8"
+                    transition={{ delay: 0.2 }}
+                    className="mb-6 md:mb-8"
                   >
-                    <div className="w-20 h-20 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <ExternalLink className="w-10 h-10 text-white" />
+                    <div className="w-12 h-12 md:w-20 md:h-20 bg-white/20 backdrop-blur-md rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg border border-white/30">
+                      <ExternalLink className="w-6 h-6 md:w-10 md:h-10 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      정책자금 사례
+                    <h3 className="text-sm md:text-2xl font-bold text-white drop-shadow-lg leading-tight">
+                      정책자금사례 더보기
                     </h3>
-                    <p className="text-sm text-gray-500 font-medium">더 많은 성공사례</p>
-                  </motion.div>
-                  
-                  {/* 더보기 버튼 */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: successCases.length * 0.1 + 0.4 }}
-                    className="w-full"
-                  >
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/50">
-                      <div className="text-lg font-bold text-blue-600 mb-2">더보기</div>
-                      <div className="text-xs text-gray-500 mb-3">블로그에서 확인</div>
-                      <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto"></div>
-                    </div>
                   </motion.div>
                   
                   {/* 클릭 안내 */}
                   <motion.div
                     animate={{ 
-                      y: [0, -3, 0],
+                      y: [0, -5, 0],
                       opacity: [0.7, 1, 0.7]
                     }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="mt-4 text-gray-600 text-xs font-medium bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-200/50"
+                    className="text-white/90 text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full border border-white/30"
                   >
                     클릭하여 블로그 이동
                   </motion.div>
@@ -481,7 +500,7 @@ const SuccessPage = () => {
                   여러분의 성공사례도 만들어보세요
                 </h3>
                 <p className="text-blue-100 mb-8 leading-relaxed drop-shadow-lg text-lg lg:text-xl">
-                  EM파트너스와 함께 정책자금을 통한 성장의 기회를 잡으세요.<br />
+                  
                   무료 상담을 통해 여러분께 맞는 최적의 솔루션을 제안해드립니다.
                 </p>
                 <motion.button 

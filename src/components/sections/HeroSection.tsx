@@ -75,13 +75,13 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover md:object-cover object-[center_30%]"
           style={{ filter: 'brightness(0.7)' }}
         >
           <source src="/videos/3209211-uhd_3840_2160_25fps.mp4" type="video/mp4" />
           {/* 영상이 로드되지 않을 경우 이미지 fallback */}
           <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat md:bg-center bg-[center_30%]"
             style={{
               backgroundImage: `url('/images/main-bg-001.jpg')`
             }}
@@ -103,46 +103,57 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-8 mt-[-30vh] md:mt-0"
         >
           {/* 메인 헤드라인 */}
           <div className="relative">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight drop-shadow-2xl">
-              <span>정책자금 신청</span>
-              <br />
-              <span className="relative inline-block mt-4">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight drop-shadow-2xl">
+              <span className="block md:block">정책자금 신청</span>
+              <span className="relative inline-block mt-1 md:mt-4">
                 <span className="text-white-900">더 이상 혼자 하지 마세요</span>
-                {/* 텍스트 뒤 장식 요소 */}
-                <div className="absolute -right-8 -top-4 w-16 h-16 opacity-30">
+                {/* 텍스트 뒤 장식 요소 - 모바일에서 숨김 */}
+                <div className="absolute -right-8 -top-4 w-16 h-16 opacity-30 hidden md:block">
                   <div className="w-full h-full bg-gradient-to-br from-blue-200 to-transparent rounded-full animate-pulse"></div>
                 </div>
-                <div className="absolute -right-4 top-8 w-8 h-8 opacity-40">
+                <div className="absolute -right-4 top-8 w-8 h-8 opacity-40 hidden md:block">
                   <div className="w-full h-full bg-blue-200 rounded-full animate-bounce-gentle"></div>
                 </div>
               </span>
             </h1>
           </div>
 
-          {/* 서브 헤드라인 */}
-          <div className="bg-white/95 backdrop-blur-md rounded-lg p-6 mx-auto max-w-4xl shadow-lg">
-            <div className="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed font-medium">
-              복잡한 서류, 까다로운 심사 기준, 낮은 승인률...
-              <br />
-              {COMPANY_CONFIG.name}의 전문 컨설팅으로 
-              <span className="relative inline-block mx-2">
-                <TypewriterText text={COMPANY_CONFIG.business.heroApprovalRate + " 승인률"} delay={200} />
+          {/* PC용 서브 헤드라인 */}
+          <div className="bg-white/40 backdrop-blur-md rounded-lg p-6 mx-auto max-w-4xl shadow-lg md:block hidden">
+            <div className="text-base md:text-lg lg:text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed font-medium">
+              <span className="block mb-2">복잡한 서류, 낮은 승인률, 까다로운 심사 기준...</span>
+              <span className="block">{COMPANY_CONFIG.name}의 전문 컨설팅으로 </span>
+              <span className="relative inline-block mx-1">
+                <TypewriterText text="95% 승인률" delay={200} />
               </span>
-              을 경험하세요
+              <span>을 경험하세요</span>
+            </div>
+          </div>
+
+          {/* 모바일용 서브 헤드라인 */}
+          <div className="bg-white/40 backdrop-blur-sm rounded-lg p-4 mx-auto max-w-sm shadow-lg md:hidden block">
+            <div className="text-sm text-gray-800 text-center leading-relaxed font-medium">
+              <span className="block">{COMPANY_CONFIG.name}의 전문 컨설팅으로</span>
+              <span className="relative inline-block mx-1">
+                <TypewriterText text="95% 승인률" delay={300} />
+              </span>
+              <span>을 경험하세요</span>
             </div>
           </div>
 
           {/* CTA 버튼들 */}
           <div className="flex justify-center items-center mt-12 z-30 relative">
-            <motion.button
-              onClick={handleConsultationClick}
+            <motion.a
+              href="https://empartners.co.kr/slide"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] hover:from-[#2d5ce8] hover:to-[#1e40af] text-white font-bold py-6 px-12 rounded-xl shadow-2xl transition-all duration-300 flex items-center space-x-4 text-xl relative overflow-hidden group"
+              className="bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] hover:from-[#2d5ce8] hover:to-[#1e40af] text-white font-bold py-4 px-6 md:py-6 md:px-12 rounded-xl shadow-2xl transition-all duration-300 flex items-center space-x-2 md:space-x-4 text-xl relative overflow-hidden group"
               style={{
                 animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
               }}
@@ -193,8 +204,8 @@ const HeroSection = () => {
               </div>
               
               {/* 텍스트 */}
-              <span className="relative z-10 font-black tracking-wide">
-                무료 상담 신청하기
+              <span className="relative z-10 font-black tracking-wide text-base md:text-xl whitespace-nowrap">
+                AI 정책자금 조회
               </span>
               
               {/* 화살표와 펄스 효과 */}
@@ -244,32 +255,12 @@ const HeroSection = () => {
                   delay: 1
                 }}
               />
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* 실시간 업데이트 알림 - 더 액티브하게 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.4 }}
-            className="mt-8 relative z-40"
-          >
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-green-500/40 to-emerald-500/40 backdrop-blur-md text-white px-6 py-3 rounded-full text-sm border border-green-400/30 shadow-lg">
-              <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }}></div>
-              </div>
-              <span className="font-medium">
-                <span className="text-green-300 font-bold">LIVE</span> 실시간으로 상담 신청이 늘어나고 있어요! 
-                {isMounted && <span className="text-yellow-300 font-bold ml-2">+{randomNumber}</span>}
-              </span>
-              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            </div>
-            
-            {/* 배경 효과 */}
-            <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full blur-xl animate-pulse"></div>
-          </motion.div>
+      
+          
         </motion.div>
       </div>
 
@@ -278,7 +269,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+        className="absolute bottom-50 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <div className="flex flex-col items-center space-y-2">
           <p className="text-white text-sm font-medium drop-shadow-lg">스크롤하여 더 보기</p>

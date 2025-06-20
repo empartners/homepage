@@ -179,21 +179,37 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-slate-800 text-white py-4 px-8 inline-block mb-8"
+              className="inline-block mb-8 relative"
             >
-              <h2 className="text-4xl md:text-5xl font-black">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-black korean-text whitespace-nowrap text-white relative z-10 pb-2">
                 이런 어려움 겪고 계시나요?
               </h2>
+              {/* 두꺼운 밑줄 강조 */}
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="absolute bottom-0 left-0 h-3 md:h-4 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 shadow-lg"
+              />
+              {/* 글로우 효과 */}
+              <motion.div
+                initial={{ width: 0, opacity: 0 }}
+                whileInView={{ width: "100%", opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="absolute bottom-0 left-0 h-3 md:h-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 blur-sm opacity-60"
+              />
             </motion.div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed korean-text"
             >
-              정책자금 신청 과정에서 마주하는 다양한 어려움들,<br />
-              이제 EM 파트너스와 함께 해결하세요!
+              <span className="block">정책자금 신청 과정에서 마주하는 다양한 어려움들,</span>
+              <span className="block">이제 EM 파트너스와 함께 해결하세요!</span>
             </motion.p>
           </div>
 
@@ -268,7 +284,7 @@ const ProblemSection = () => {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                      className="text-xl md:text-2xl font-bold text-white mb-6 leading-tight"
+                      className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-6 leading-tight korean-text"
                     >
                       {problem.title}
                     </motion.h3>
@@ -362,7 +378,7 @@ const ProblemSection = () => {
               />
               
               <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 korean-text whitespace-nowrap">
                   이제 혼자 고민하지 마세요
                 </h3>
                 <p className="text-xl text-white mb-8 max-w-2xl mx-auto">

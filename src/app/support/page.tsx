@@ -12,7 +12,7 @@ const SupportPage = () => {
   const tabs = [
     {
       id: 'government',
-      label: '정부지원사업',
+      label: '정부지원',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -24,38 +24,38 @@ const SupportPage = () => {
             <div className="bg-blue-50 rounded-xl p-6">
               <h3 className="text-xl font-semibold text-blue-900 mb-6">현재 진행 중인 사업</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  {
+            {[
+              {
                     title: '중소기업 챌린지진단 지원사업 2차',
-                    agency: '중소벤처기업부',
+                agency: '중소벤처기업부',
                     status: '진행중',
                     description: '중소기업의 경영진단 및 개선 컨설팅 지원',
                     icon: Target,
-                    color: 'from-blue-500 to-blue-600'
-                  },
-                  {
+                color: 'from-blue-500 to-blue-600'
+              },
+              {
                     title: '중소기업기술혁신개발사업(구매연계·상생협력) 하반기',
                     agency: '중소벤처기업부',
                     status: '진행중',
                     description: '구매연계형 기술개발 및 상생협력 지원',
-                    icon: Zap,
-                    color: 'from-purple-500 to-purple-600'
-                  },
-                  {
+                icon: Zap,
+                color: 'from-purple-500 to-purple-600'
+              },
+              {
                     title: '글로벌 팁스(사업화) 창업기업 모집',
                     agency: '중소벤처기업부',
-                    status: '모집중',
+                status: '모집중',
                     description: '해외진출형 창업기업 사업화 지원',
-                    icon: Globe,
-                    color: 'from-green-500 to-green-600'
-                  },
-                  {
+                icon: Globe,
+                color: 'from-green-500 to-green-600'
+              },
+              {
                     title: 'IFA 베를린 스타트업 사절단',
-                    agency: '중소벤처기업부',
-                    status: '모집중',
+                agency: '중소벤처기업부',
+                status: '모집중',
                     description: '독일 베를린 스타트업 전시회 참가 지원',
                     icon: Rocket,
-                    color: 'from-orange-500 to-orange-600'
+                color: 'from-orange-500 to-orange-600'
                   }
                 ].map((item, index) => (
                   <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -125,7 +125,7 @@ const SupportPage = () => {
     },
     {
       id: 'local',
-      label: '지자체사업',
+      label: '지자체',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -153,21 +153,21 @@ const SupportPage = () => {
                   status: '진행중',
                   icon: Globe,
                   color: 'from-green-500 to-green-600'
-                }
-              ].map((item, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className={`bg-gradient-to-r ${item.color} p-6 text-white`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <item.icon className="w-10 h-10" />
-                      <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
-                        {item.status}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+              }
+            ].map((item, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className={`bg-gradient-to-r ${item.color} p-6 text-white`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <item.icon className="w-10 h-10" />
+                    <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
+                      {item.status}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                     <p className="text-white/90">{item.agency}</p>
                   </div>
                   <div className="p-6 space-y-3">
-                    <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3">
                       <MapPin className="w-5 h-5 text-gray-400" />
                       <span className="text-gray-600">{item.region}</span>
                     </div>
@@ -192,21 +192,21 @@ const SupportPage = () => {
                   <Users className="w-8 h-8 text-blue-600 mx-auto mb-3" />
                   <h4 className="font-semibold text-gray-900 mb-2">접근성</h4>
                   <p className="text-sm text-gray-600">지역 기업의 편리한 접근과 지원</p>
-                </div>
+                  </div>
                 <div className="bg-white rounded-lg p-4 text-center">
                   <Target className="w-8 h-8 text-blue-600 mx-auto mb-3" />
                   <h4 className="font-semibold text-gray-900 mb-2">실용성</h4>
                   <p className="text-sm text-gray-600">실질적이고 즉시 활용 가능한 지원</p>
                 </div>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       )
     },
     {
       id: 'private',
-      label: '민간지원사업',
+      label: '민간지원',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -216,8 +216,8 @@ const SupportPage = () => {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
+            {[
+              {
                   title: '소비재 중소기업 해외진출 프로젝트',
                   agency: '쿠팡·대중소기업농어업협력재단',
                   description: '소비재 중소기업의 해외 진출 및 글로벌 판로 개척 지원',
@@ -225,8 +225,8 @@ const SupportPage = () => {
                   status: '진행중',
                   icon: Globe,
                   color: 'from-purple-500 to-purple-600'
-                },
-                {
+              },
+              {
                   title: '2025 소상공인 홍보 지원사업',
                   agency: '판판대로',
                   description: '소상공인 브랜딩 및 마케팅 홍보 지원',
@@ -234,8 +234,8 @@ const SupportPage = () => {
                   status: '모집예정',
                   icon: Star,
                   color: 'from-pink-500 to-pink-600'
-                }
-              ].map((item, index) => (
+              }
+            ].map((item, index) => (
                 <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <div className={`bg-gradient-to-r ${item.color} p-6 text-white`}>
                     <div className="flex items-center justify-between mb-4">
@@ -287,7 +287,7 @@ const SupportPage = () => {
     },
     {
       id: 'global',
-      label: '해외진출지원',
+      label: '해외진출',
       content: (
         <div className="space-y-8">
           <div className="text-center mb-8">
@@ -297,8 +297,8 @@ const SupportPage = () => {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
+            {[
+              {
                   title: '글로벌 강소기업 1,000+ 프로젝트',
                   agency: '중소벤처기업부·KOTRA·무역보험공사',
                   description: '수출 유망 중소기업의 글로벌 강소기업 육성 지원',
@@ -306,8 +306,8 @@ const SupportPage = () => {
                   amount: '맞춤형 지원',
                   icon: Building,
                   color: 'from-blue-500 to-blue-600'
-                },
-                {
+              },
+              {
                   title: '수출바우처 사업 (선택형)',
                   agency: '중소벤처기업부',
                   description: '중소기업의 수출 활동 지원을 위한 바우처 제공',
@@ -315,8 +315,8 @@ const SupportPage = () => {
                   amount: '최대 200만원',
                   icon: DollarSign,
                   color: 'from-green-500 to-green-600'
-                },
-                {
+              },
+              {
                   title: 'K-Global 해외진출 지원사업',
                   agency: '과기정통부',
                   description: 'ICT 기업의 해외진출 및 글로벌 시장 확장 지원',
@@ -324,8 +324,8 @@ const SupportPage = () => {
                   amount: '최대 2억원',
                   icon: Globe,
                   color: 'from-purple-500 to-purple-600'
-                }
-              ].map((item, index) => (
+              }
+            ].map((item, index) => (
                 <div key={index} className={`bg-white rounded-xl shadow-lg overflow-hidden ${index === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
                   <div className={`bg-gradient-to-r ${item.color} p-6 text-white`}>
                     <item.icon className="w-10 h-10 mb-4" />
@@ -384,7 +384,7 @@ const SupportPage = () => {
                   <p className="text-sm text-blue-100">지속적인 해외사업 확장 지원</p>
                 </div>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       )
@@ -394,7 +394,7 @@ const SupportPage = () => {
   return (
     <PageLayout
       title="지원사업"
-      description="EM파트너스가 안내하는 다양한 정부·지자체·민간 지원사업 정보를 확인하세요. 정부지원사업부터 해외진출지원까지 맞춤형 사업을 찾아드립니다."
+      description="EM파트너스가 정부지원사업부터 해외진출지원까지 맞춤형 사업을 찾아드립니다."
       backgroundImage="/images/support-bg.jpg"
       tabs={tabs}
       defaultTab={tab || undefined}

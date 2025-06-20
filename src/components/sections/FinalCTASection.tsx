@@ -36,17 +36,17 @@ const FinalCTASection = () => {
           className="text-center"
         >
           {/* 메인 헤드라인 */}
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-            정책자금, 더 이상 
-            <br />
-            <span className="text-yellow-300">혼자 고민하지 마세요</span>
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-6 drop-shadow-lg leading-tight">
+            <span className="block">정책자금,</span>
+            <span className="block">더 이상</span>
+            <span className="text-yellow-300 block">혼자 고민하지 마세요</span>
           </h2>
 
           {/* 서브 헤드라인 */}
-          <p className="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
-            EM파트너스가 신청부터 승인까지 모든 과정을 책임집니다.
-            <br />
-            <strong className="text-yellow-300">지금 바로 무료 상담을 받아보세요!</strong>
+          <p className="text-lg md:text-xl lg:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
+            <span className="block">EM파트너스가 신청부터 승인까지</span>
+            <span className="block mb-2">모든 과정을 책임집니다.</span>
+            <strong className="text-yellow-300 block">지금 바로 무료 상담을 받아보세요!</strong>
           </p>
 
           {/* 혜택 포인트 */}

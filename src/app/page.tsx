@@ -11,14 +11,14 @@ export default function Home() {
     <>
       <StructuredData type="organization" />
       <StructuredData type="website" />
-      <main className="min-h-screen">
-        <HeroSection />
-        <ScrollingBanner />
-        <ProblemSection />
-        <SolutionSection />
-        <SocialProofSection />
-        <FAQSection />
-      </main>
+    <main className="min-h-screen">
+      <HeroSection />
+      <ScrollingBanner />
+      <ProblemSection />
+      <SolutionSection />
+      <SocialProofSection />
+      <FAQSection />
+    </main>
     </>
   );
 }

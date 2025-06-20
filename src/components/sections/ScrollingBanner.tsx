@@ -1,57 +1,82 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
 const ScrollingBanner = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // 모바일 기기 감지
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const bannerItems = [
     "정책자금 신청부터 승인까지 원스톱 관리",
     "95% 높은 승인률 보장",
-    "1:1 맞춤형 컨설팅 서비스",
+    "1:1 맞춤형 컨설팅 서비스", 
     "전문 컨설턴트 직접 상담",
     "무료 사전 상담 가능",
     "기업인증 지원 서비스",
-    "정부지원사업 전문 관리",
-    "실시간 온라인 상담 운영",
   ];
 
-  // 배너 아이템을 2배로 복제하여 무한 스크롤 효과 구현
-  const duplicatedItems = [...bannerItems, ...bannerItems];
+  // 모바일에서는 아이템 수 줄이고, 데스크톱에서는 더 많이
+  const displayItems = isMobile ? bannerItems.slice(0, 4) : bannerItems;
+  const duplicatedItems = [...displayItems, ...displayItems];
 
   return (
-    <div className="bg-white py-6 overflow-hidden relative border-y border-gray-200">
-      {/* 배경 패턴 */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full bg-gradient-to-r from-transparent via-gray-400/20 to-transparent"></div>
-      </div>
-      
-      <motion.div
-        className="flex space-x-16 whitespace-nowrap relative z-10"
-        animate={{
-          x: ['0%', '-50%'],
-        }}
-        transition={{
-          duration: 30,
-          ease: 'linear',
-          repeat: Infinity,
+    <div className="bg-white py-4 md:py-6 overflow-hidden relative border-y border-gray-200">
+      <div 
+        className="scroll-container"
+        style={{
+          display: 'flex',
+          animation: `scroll ${isMobile ? '15s' : '25s'} linear infinite`,
+          willChange: 'transform',
         }}
       >
         {duplicatedItems.map((item, index) => (
           <div
             key={index}
-            className="flex items-center space-x-4"
+            className="flex items-center flex-shrink-0"
+            style={{
+              marginRight: isMobile ? '2rem' : '4rem',
+              minWidth: 'max-content'
+            }}
           >
-            <span className="text-xl font-bold text-gray-800 drop-shadow-sm bg-gray-100/80 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-200/50">
+            <span className="text-sm md:text-base lg:text-lg font-semibold text-gray-700 bg-gray-50 px-3 py-2 md:px-4 md:py-2 rounded-full border border-gray-200 whitespace-nowrap">
               {item}
             </span>
-            <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full shadow-lg animate-pulse" />
+            <div className="w-2 h-2 md:w-3 md:h-3 bg-blue-500 rounded-full ml-4" />
           </div>
         ))}
-      </motion.div>
+      </div>
       
-      {/* 좌우 그라데이션 페이드 효과 */}
-      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-20"></div>
-      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-20"></div>
+      {/* 좌우 페이드 효과 - 간소화 */}
+      <div className="absolute left-0 top-0 w-16 md:w-24 h-full bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+      <div className="absolute right-0 top-0 w-16 md:w-24 h-full bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+      
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .scroll-container {
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+      `}</style>
     </div>
   );
 };
