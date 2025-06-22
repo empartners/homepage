@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
 import { DollarSign, FileText, Clock, CheckCircle, TrendingUp, Target, Users, Zap, Building, Percent, Calendar, Shield, Globe } from 'lucide-react';
 
-const FundPage = () => {
+const FundContent = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab');
 
@@ -662,6 +662,14 @@ const FundPage = () => {
       tabs={tabs}
       defaultTab={tab || undefined}
     />
+  );
+};
+
+const FundPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FundContent />
+    </Suspense>
   );
 };
 

@@ -201,7 +201,7 @@ const CertPage = () => {
   return (
     <PageLayout
       title="기업인증"
-      subtitle="기업의 신뢰성과 경쟁력 강화를 위한 각종 인증 취득을 지원합니다"
+      description="기업의 신뢰성과 경쟁력 강화를 위한 각종 인증 취득을 지원합니다"
       tabs={tabs}
       defaultTab="overview"
     />

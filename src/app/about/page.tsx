@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
 import { Building, Users, Target, Award, Calendar, MapPin, Phone, Mail, User, History, Navigation, TrendingUp, Rocket, CheckCircle, Star, Zap, BarChart3, Users2, Settings } from 'lucide-react';
@@ -35,7 +35,7 @@ const CounterAnimation = ({ targetValue, suffix = '' }: { targetValue: number; s
   return <span>{currentValue}{suffix}</span>;
 };
 
-const AboutPage = () => {
+const AboutContent = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab');
 
@@ -669,6 +669,14 @@ const AboutPage = () => {
       defaultTab={tab || undefined}
       isAboutPage={true}
     />
+  );
+};
+
+const AboutPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AboutContent />
+    </Suspense>
   );
 };
 

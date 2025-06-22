@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
 import { Building, TrendingUp, ArrowRight, CheckCircle, Quote, Factory, Utensils, ShoppingCart, Building2, Smartphone, X, Clock, Award, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SuccessPage = () => {
+const SuccessContent = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab');
   const [selectedCase, setSelectedCase] = useState<any>(null);
@@ -531,6 +531,14 @@ const SuccessPage = () => {
         )}
       </AnimatePresence>
     </>
+  );
+};
+
+const SuccessPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   );
 };
 

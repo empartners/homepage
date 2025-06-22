@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
 import { Rocket, Zap, Globe, Users, Calendar, DollarSign, CheckCircle, Building, MapPin, Star, Target } from 'lucide-react';
 
-const SupportPage = () => {
+const SupportContent = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab');
 
@@ -399,6 +399,14 @@ const SupportPage = () => {
       tabs={tabs}
       defaultTab={tab || undefined}
     />
+  );
+};
+
+const SupportPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SupportContent />
+    </Suspense>
   );
 };
 

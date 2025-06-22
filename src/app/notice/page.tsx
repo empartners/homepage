@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
 import { Bell, Calendar, Eye, ChevronRight, Star, AlertTriangle, Megaphone, FileText, Users, Trophy, ChevronDown, ChevronUp } from 'lucide-react';
 
-const NoticePage = () => {
+const NoticeContent = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -324,6 +324,14 @@ const NoticePage = () => {
       tabs={tabs}
       defaultTab={tab || undefined}
     />
+  );
+};
+
+const NoticePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <NoticeContent />
+    </Suspense>
   );
 };
 
