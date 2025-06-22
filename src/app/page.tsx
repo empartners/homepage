@@ -4,6 +4,7 @@ import ProblemSection from '@/components/sections/ProblemSection';
 import SolutionSection from '@/components/sections/SolutionSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
 import FAQSection from '@/components/sections/FAQSection';
+import FinalCTASection from '@/components/sections/FinalCTASection';
 import StructuredData from '@/components/seo/StructuredData';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <SolutionSection />
       <SocialProofSection />
       <FAQSection />
+      <FinalCTASection />
     </main>
     </>
   );

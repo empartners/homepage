@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Plus, Minus, HelpCircle, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -21,8 +22,8 @@ const FAQSection = () => {
       answer: "사업 유형과 시기에 따라 다릅니다. 무료 사전 진단을 통해 정확히 안내드리니, 언제든 부담 없이 문의 주세요."
     },
     {
-      question: "신청부터 승인까지 얼마나 걸리나요?",
-      answer: "일반적으로 3~6개월 정도 소요됩니다. 서류 작성 및 제출에 1~2개월, 심사 과정에 2~4개월이 걸립니다. EM파트너스와 함께하면 전문적인 사전 준비로 평균 30일 정도 단축할 수 있습니다."
+      question: "신용점수가 낮아도 신청할 수 있나요?",
+      answer: "네, 가능합니다. NICE 기준 신용점수 839점 이하인 경우에도 '저신용 전용 정책자금'으로 신청할 수 있으며, 사업성과 미래 성장 가능성을 중심으로 심사가 진행됩니다."
     }
   ];
 
@@ -38,19 +39,34 @@ const FAQSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <div className="flex items-center justify-center mb-4">
-            <HelpCircle className="w-12 h-12 text-brand-main mr-4" />
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              자주 묻는 질문
-            </h2>
+          {/* 제목과 더보기 링크 */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <HelpCircle className="w-10 h-10 text-brand-main mr-3" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                자주 묻는 질문
+              </h2>
+            </div>
+            
+            <Link 
+              href="/notice?tab=faq"
+              className="group flex items-center space-x-2 text-brand-main hover:text-brand-main/80 transition-colors duration-200"
+            >
+              <span className="text-lg font-semibold">더 보기</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            정책자금에 대해 궁금한 것들을 모았습니다.
-            <br />
-            더 자세한 상담이 필요하시면 언제든 연락주세요.
-          </p>
+          
+          {/* 설명 텍스트 */}
+          <div className="text-center mb-8">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              정책자금에 대해서 궁금한 점을 모았습니다.
+              <br />
+              더 자세한 상담이 필요하시면 언제든 연락주세요.
+            </p>
+          </div>
         </motion.div>
 
         {/* FAQ 리스트 */}
@@ -100,8 +116,6 @@ const FAQSection = () => {
             </motion.div>
           ))}
         </div>
-
-
 
         {/* 바로가기 카드 */}
         <motion.div

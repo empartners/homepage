@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NEXT_PUBLIC_NAVER_MAP_API_KEY": "e2n4pc3ay3"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_NAVER_MAP_API_KEY": "e2n4pc3ay3"
+    }
+  }
+} 

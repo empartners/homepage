@@ -3,6 +3,7 @@
 import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
+import DynamicBackground from '@/components/common/DynamicBackground';
 import { DollarSign, FileText, Clock, CheckCircle, TrendingUp, Target, Users, Zap, Building, Percent, Calendar, Shield, Globe } from 'lucide-react';
 
 const FundContent = () => {
@@ -15,34 +16,51 @@ const FundContent = () => {
       label: '정책자금이란?',
       content: (
         <div className="space-y-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">정책자금이란?</h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              정부가 소상공인 및 중소기업의 성장을 지원하기 위해 제공하는 공공 목적의 저금리 자금입니다
-            </p>
-          </div>
+          <DynamicBackground>
+            <div className="px-6 md:px-8 lg:px-10">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-white mb-4">정책자금이란?</h2>
+                <p className="text-lg text-gray-200 max-w-4xl mx-auto">
+                정부(중소벤처기업부, 중진공, 기술보증기금 등)가 소상공인 및 중소기업을 대상으로 저리 또는 무담보 대출의 형태로 지원하는 공공 목적의 자금입니다. 민간 금융기관에서 자금 조달이 어려운 기업에게 성장 기반을 마련할 수 있도록 돕는 역할을 합니다
+                </p>
+              </div>
+            </div>
+          </DynamicBackground>
 
           {/* 메인 설명 섹션 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             {/* 왼쪽 이미지 */}
             <div className="order-2 lg:order-1">
-              <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 shadow-lg">
-                <div className="absolute top-4 right-4">
-                  <Building className="w-8 h-8 text-blue-600 opacity-30" />
-                </div>
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
-                    <DollarSign className="w-16 h-16 text-white" />
+              <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/images/fund/fund-0.jpg" 
+                  alt="정책자금 설명 이미지"
+                  className="w-full h-auto object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling!.classList.remove('hidden');
+                  }}
+                />
+                {/* 이미지 로드 실패 시 대체 콘텐츠 */}
+                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 shadow-lg hidden">
+                  <div className="absolute top-4 right-4">
+                    <Building className="w-8 h-8 text-blue-600 opacity-30" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">정부 지원 자금</h3>
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                      <div className="text-2xl font-bold text-blue-600">1~4%</div>
-                      <div className="text-sm text-gray-600">저금리</div>
+                  <div className="text-center h-full flex flex-col justify-center">
+                    <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                      <DollarSign className="w-16 h-16 text-white" />
                     </div>
-                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                      <div className="text-2xl font-bold text-green-600">95%</div>
-                      <div className="text-sm text-gray-600">승인률</div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">정부 지원 자금</h3>
+                    <div className="grid grid-cols-2 gap-4 text-center">
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <div className="text-2xl font-bold text-blue-600">1~4%</div>
+                        <div className="text-sm text-gray-600">저금리</div>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <div className="text-2xl font-bold text-green-600">95%</div>
+                        <div className="text-sm text-gray-600">승인률</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -80,6 +98,90 @@ const FundContent = () => {
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                     <span className="text-gray-700">중진공, 신보 등 공공기관 연계</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 자금 유형별 분류 */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">자금 유형별 분류</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* 운전자금 */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                {/* 상단 이미지 영역 */}
+                <div className="relative h-48 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: 'url(/images/home-card-fund.png)' }}
+                  />
+                  {/* 제목 */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="text-2xl font-bold text-white drop-shadow-lg">운전자금</h4>
+                  </div>
+                </div>
+                
+                {/* 하단 텍스트 영역 */}
+                <div className="p-6 bg-white">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    일상적인 경영활동(인건비, 재료비, 임대료 등)에서 현금흐름이 부족할 때 사용하는 자금
+                  </p>
+                  <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                    <span className="text-sm font-semibold text-[#4081ed]">예시:</span>
+                    <span className="text-sm text-gray-700 ml-2">계절 매출 편차 대응, 임시 유동성 확보</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 시설자금 */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                {/* 상단 이미지 영역 */}
+                <div className="relative h-48 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: 'url(/images/home-card-office.png)' }}
+                  />
+                  {/* 제목 */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="text-2xl font-bold text-white drop-shadow-lg">시설자금</h4>
+                  </div>
+                </div>
+                
+                {/* 하단 텍스트 영역 */}
+                <div className="p-6 bg-white">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    공장, 사무실, 설비, 장비 등을 신규 구축하거나 확장할 때 사용하는 자금
+                  </p>
+                  <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                    <span className="text-sm font-semibold text-[#4081ed]">특징:</span>
+                    <span className="text-sm text-gray-700 ml-2">장기 상환 구조(3~10년), 대규모 투자 유도</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 특화자금 */}
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
+                {/* 상단 이미지 영역 */}
+                <div className="relative h-48 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: 'url(/images/fund-bg.jpg)' }}
+                  />
+                  {/* 제목 */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="text-2xl font-bold text-white drop-shadow-lg">특화자금</h4>
+                  </div>
+                </div>
+                
+                {/* 하단 텍스트 영역 */}
+                <div className="p-6 bg-white">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    여성, 청년, 장애인, 재창업자 등 특정 대상자에 대한 우대 정책자금
+                  </p>
+                  <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                    <span className="text-sm font-semibold text-[#4081ed]">대상:</span>
+                    <span className="text-sm text-gray-700 ml-2">창업초기자금, 청년창업사관학교 연계 등</span>
                   </div>
                 </div>
               </div>
@@ -215,53 +317,7 @@ const FundContent = () => {
             </div>
           </div>
 
-          {/* 자금 유형별 분류 */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">자금 유형별 분류</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">운전자금</h4>
-                <p className="text-gray-700 mb-4">
-                  일상적인 경영활동(인건비, 재료비, 임대료 등)에서 현금흐름이 부족할 때 사용하는 자금
-                </p>
-                <div className="bg-white rounded-lg p-3">
-                  <span className="text-sm font-medium text-blue-600">예시:</span>
-                  <span className="text-sm text-gray-600 ml-2">계절 매출 편차 대응, 임시 유동성 확보</span>
-                </div>
-              </div>
 
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
-                <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
-                  <Building className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">시설자금</h4>
-                <p className="text-gray-700 mb-4">
-                  공장, 사무실, 설비, 장비 등을 신규 구축하거나 확장할 때 사용하는 자금
-                </p>
-                <div className="bg-white rounded-lg p-3">
-                  <span className="text-sm font-medium text-green-600">특징:</span>
-                  <span className="text-sm text-gray-600 ml-2">장기 상환 구조(3~10년), 대규모 투자 유도</span>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
-                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">특화자금</h4>
-                <p className="text-gray-700 mb-4">
-                  여성, 청년, 장애인, 재창업자 등 특정 대상자에 대한 우대 정책자금
-                </p>
-                <div className="bg-white rounded-lg p-3">
-                  <span className="text-sm font-medium text-purple-600">대상:</span>
-                  <span className="text-sm text-gray-600 ml-2">창업초기자금, 청년창업사관학교 연계 등</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       )
     },
@@ -270,12 +326,16 @@ const FundContent = () => {
       label: '소상공인 정책',
       content: (
         <div className="space-y-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">소상공인 정책자금</h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              상시 근로자 5명(서비스업 등) 또는 10명 미만(제조·건설 등)인 소상공인을 위한 정책자금
-            </p>
-          </div>
+          <DynamicBackground>
+            <div className="px-6 md:px-8 lg:px-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-white mb-4">소상공인 정책자금</h2>
+                <p className="text-lg text-gray-200 max-w-4xl mx-auto">
+                  상시 근로자 5명(서비스업 등) 또는 10명 미만(제조·건설 등)인 소상공인을 위한 정책자금
+                </p>
+              </div>
+            </div>
+          </DynamicBackground>
 
           <div className="bg-blue-50 rounded-xl p-6 md:p-8">
             <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
@@ -347,12 +407,16 @@ const FundContent = () => {
       label: '대환대출',
       content: (
         <div className="space-y-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">소상공인 대환대출</h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              NCB 신용점수 839점 이하, 연 7% 이상 고금리 대출 보유 소상공인을 위한 대환 지원
-            </p>
-          </div>
+          <DynamicBackground>
+            <div className="px-6 md:px-8 lg:px-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-white mb-4">소상공인 대환대출</h2>
+                <p className="text-lg text-gray-200 max-w-4xl mx-auto">
+                  NCB 신용점수 839점 이하, 연 7% 이상 고금리 대출 보유 소상공인을 위한 대환 지원
+                </p>
+              </div>
+            </div>
+          </DynamicBackground>
 
           <div className="bg-blue-50 rounded-xl p-6 md:p-8">
             <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
@@ -501,12 +565,16 @@ const FundContent = () => {
       label: '창업지원',
       content: (
         <div className="space-y-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">중진공 창업기업지원자금</h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              업력 5년 이하 창업·예비창업 기업을 위한 성장 지원 자금
-            </p>
-          </div>
+          <DynamicBackground>
+            <div className="px-6 md:px-8 lg:px-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-white mb-4">중진공 창업기업지원자금</h2>
+                <p className="text-lg text-gray-200 max-w-4xl mx-auto">
+                  업력 5년 이하 창업·예비창업 기업을 위한 성장 지원 자금
+                </p>
+              </div>
+            </div>
+          </DynamicBackground>
 
           <div className="bg-blue-50 rounded-xl p-6 md:p-8">
             <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
@@ -578,12 +646,16 @@ const FundContent = () => {
       label: '해외진출',
       content: (
         <div className="space-y-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">신시장진출지원자금</h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              수출 실적 및 지원사업 참여 기업을 위한 해외진출 지원 자금
-            </p>
-          </div>
+          <DynamicBackground>
+            <div className="px-6 md:px-8 lg:px-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-white mb-4">신시장진출지원자금</h2>
+                <p className="text-lg text-gray-200 max-w-4xl mx-auto">
+                  수출 실적 및 지원사업 참여 기업을 위한 해외진출 지원 자금
+                </p>
+              </div>
+            </div>
+          </DynamicBackground>
 
           <div className="bg-blue-50 rounded-xl p-6 md:p-8">
             <h3 className="text-xl md:text-2xl font-semibold text-blue-900 mb-6">지원 대상</h3>
@@ -661,6 +733,7 @@ const FundContent = () => {
       backgroundImage="/images/fund-bg.jpg"
       tabs={tabs}
       defaultTab={tab || undefined}
+      isFundPage={true}
     />
   );
 };

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import FinalCTASection from '@/components/sections/FinalCTASection';
 
 interface Tab {
   id: string;
@@ -17,6 +18,7 @@ interface PageLayoutProps {
   tabs: Tab[];
   defaultTab?: string;
   isAboutPage?: boolean;
+  isFundPage?: boolean;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
@@ -26,7 +28,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   backgroundPosition = 'center 40%',
   tabs,
   defaultTab,
-  isAboutPage
+  isAboutPage,
+  isFundPage
 }) => {
   const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
 
@@ -66,15 +69,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           </motion.div>
         </div>
 
-        {/* 하단 곡선 */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-              fill="rgb(249 250 251)"
-            />
-          </svg>
-        </div>
+
       </section>
 
       {/* 메인 컨텐츠 - 패딩 줄임 */}
@@ -176,20 +171,22 @@ const PageLayout: React.FC<PageLayoutProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`relative bg-white rounded-2xl shadow-lg border border-gray-200/50 p-6 md:p-8 lg:p-12 overflow-hidden ${
+            className={`relative rounded-2xl shadow-lg border border-gray-200/50 overflow-hidden ${
               isAboutPage ? 'min-h-[600px]' : ''
+            } ${
+              isFundPage && activeTab !== 'what-is-policy-fund' 
+                ? 'bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen -mx-4 sm:-mx-6 lg:-mx-8 p-6 md:p-8 lg:p-12' 
+                : 'bg-white p-6 md:p-8 lg:p-12'
             }`}
           >
-            {/* about 페이지일 경우 배경 이미지 */}
-            {/* {isAboutPage && (
+            {/* fund 페이지의 특정 탭들에 대한 배경 */}
+            {isFundPage && activeTab !== 'what-is-policy-fund' && (
               <>
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-                  style={{ backgroundImage: 'url(/images/com-bg-03.png)' }}
-                />
-                <div className="absolute inset-0 bg-white/50" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-400/10 to-blue-800/5" />
+                <div className="absolute top-10 right-10 w-32 h-32 bg-blue-300/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-10 left-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl" />
               </>
-            )} */}
+            )}
             
             <div className="relative z-10">
             {tabs.find(tab => tab.id === activeTab)?.content}
@@ -197,6 +194,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           </motion.div>
         </div>
       </section>
+
+      {/* CTA 섹션 */}
+      <FinalCTASection />
     </div>
   );
 };

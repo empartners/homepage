@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import PageLayout from '@/components/layout/PageLayout';
 import { Building, TrendingUp, ArrowRight, CheckCircle, Quote, Factory, Utensils, ShoppingCart, Building2, Smartphone, X, Clock, Award, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import FinalCTASection from '@/components/sections/FinalCTASection';
 
 const SuccessContent = () => {
   const searchParams = useSearchParams();
@@ -122,236 +123,171 @@ const SuccessContent = () => {
 
   const gridContent = (
         <div className="space-y-8">
-          {/* 간소화된 정사각형 카드 그리드 - 모바일에서 2개씩 */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          {/* 이미지+텍스트 분리형 카드 그리드 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {successCases.map((case_, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ 
-                  duration: 0.6, 
-                  delay: 0,
-                  type: "spring",
-                  stiffness: 120
+                  duration: 0.4, 
+                  delay: index * 0.1,
+                  ease: "easeOut"
                 }}
                 viewport={{ once: true }}
                 className="group cursor-pointer"
                 onClick={() => openModal(case_)}
               >
-                {/* 정사각형 카드 - 간소화된 스타일 */}
+                {/* 카드 - 이미지와 텍스트 분리 스타일 */}
                 <motion.div
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative aspect-square rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden border-2 border-white/20 cursor-pointer"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer group"
                 >
-                  {/* 배경 이미지 */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url(${case_.backgroundImage})` }}
-                  />
-                  
-                  {/* 다크 그라데이션 오버레이 */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70" />
-                  
-                  {/* 글로우 효과 */}
-                  <motion.div
-                    animate={{
-                      opacity: [0.2, 0.4, 0.2],
-                      scale: [1, 1.02, 1]
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.8
-                    }}
-                    className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-3xl"
-                  />
-                  
-                  {/* 카드 내용 - 업종과 금액만 */}
-                  <div className="relative z-10 p-4 md:p-6 h-full flex flex-col justify-center items-center text-center">
-                    {/* 업종 - 더 아래로 이동 */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 + 0.2 }}
-                      className="mb-4 md:mb-6"
-                    >
-                      <h3 className="text-base md:text-xl font-bold text-white drop-shadow-lg">
+                  {/* 상단 이미지 영역 */}
+                  <div className="relative h-48 overflow-hidden">
+                    {/* 배경 이미지 */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center bg-no-repeat transform group-hover:scale-105 transition-transform duration-500"
+                      style={{ backgroundImage: `url(${case_.backgroundImage})` }}
+                    />
+                    
+                    {/* 그라데이션 오버레이 */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    
+                    {/* 업종 아이콘 */}
+                    <div className="absolute top-4 left-4">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/30">
+                        <case_.icon className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    
+                    {/* 금액 표시 - 우상단 */}
+                    <div className="absolute top-4 right-4">
+                      <div className="bg-[#4081ed] text-white px-3 py-1.5 rounded-lg font-bold text-sm shadow-lg">
+                        {case_.amount}
+                      </div>
+                    </div>
+                    
+                    {/* 업종명 - 하단 */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-bold text-lg drop-shadow-lg">
                         {case_.industry}
                       </h3>
-                    </motion.div>
-                    
-                    {/* 지원금액 강조 - 슬림한 스타일 */}
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 + 0.4 }}
-                      className="relative"
-                    >
-                      {/* 메인 금액 표시 - 슬림한 패딩 */}
-                      <div className="bg-white/15 backdrop-blur-md rounded-lg md:rounded-xl px-4 py-2 md:px-6 md:py-3 shadow-xl border border-white/30">
-                        <div className="text-lg md:text-3xl font-black text-white drop-shadow-lg">{case_.amount}</div>                 
-                      </div>
-                      
-                      {/* 글로우 효과 */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-lg blur-lg -z-10"></div>
-                    </motion.div>
-                    
-                    {/* 클릭 안내 */}
-                    <motion.div
-                      animate={{ 
-                        y: [0, -5, 0],
-                        opacity: [0.6, 1, 0.6]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      className="mt-4 md:mt-6 text-white/80 text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-white/20"
-                    >
-                       자세히 보기
-                    </motion.div>
+                    </div>
                   </div>
                   
-                  {/* 테두리 글로우 */}
-                  <motion.div
-                    animate={{
-                      opacity: [0.3, 0.7, 0.3],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 1.2
-                    }}
-                    className="absolute inset-0 rounded-3xl border-2 border-blue-400/50 pointer-events-none"
-                  />
+                  {/* 하단 흰색 텍스트 영역 */}
+                  <div className="p-4 bg-white">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-gray-600 text-sm">
+                        {case_.program}
+                      </div>
+                      <div className="flex items-center text-gray-500 text-xs">
+                        <Clock className="w-3 h-3 mr-1" />
+                        {case_.period}
+                      </div>
+                    </div>
+                    
+                    <div className="text-gray-700 text-sm leading-relaxed mb-3 h-10 overflow-hidden">
+                      {case_.description.length > 60 ? `${case_.description.substring(0, 60)}...` : case_.description}
+                    </div>
+                    
+                    {/* 클릭 안내 */}
+                    <div className="flex items-center justify-center">
+                      <motion.div
+                        animate={{ 
+                          opacity: [0.7, 1, 0.7]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        className="text-[#4081ed] text-sm font-medium flex items-center"
+                      >
+                        자세히 보기
+                        <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                      </motion.div>
+                    </div>
+                  </div>
+                  
+
                 </motion.div>
               </motion.div>
             ))}
 
-            {/* 정책자금 사례 더보기 카드 - 개선된 디자인 */}
+            {/* 정책자금 사례 더보기 카드 */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.6, 
-                delay: 0,
-                type: "spring",
-                stiffness: 120
+                duration: 0.4, 
+                delay: successCases.length * 0.1,
+                ease: "easeOut"
               }}
               viewport={{ once: true }}
               className="group cursor-pointer"
               onClick={() => window.open('https://blog.naver.com/empareners', '_blank')}
             >
-              {/* 정사각형 카드 - 깔끔한 스타일 */}
+              {/* 더보기 카드 - 새로운 스타일 */}
               <motion.div
-                whileHover={{ scale: 1.05, y: -10 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-                className="relative aspect-square rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-200/20 cursor-pointer"
+                whileHover={{ scale: 1.02, y: -5 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer group"
               >
-                {/* 배경 이미지 */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: 'url(/images/success-com/com-more.png)' }}
-                />
-                
-                {/* 오버레이 */}
-                <div className="absolute inset-0 bg-black/60" />
-                
-                {/* 카드 내용 */}
-                <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
-                  {/* 정책자금사례 더보기 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="mb-6 md:mb-8"
-                  >
-                    <div className="w-12 h-12 md:w-20 md:h-20 bg-white/20 backdrop-blur-md rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg border border-white/30">
-                      <ExternalLink className="w-6 h-6 md:w-10 md:h-10 text-white" />
+                {/* 상단 이미지 영역 */}
+                <div className="relative h-48 overflow-hidden">
+                  {/* 배경 이미지 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transform group-hover:scale-105 transition-transform duration-500"
+                    style={{ backgroundImage: 'url(/images/success-com/com-more.png)' }}
+                  />
+                  
+                  {/* 그라데이션 오버레이 */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  
+                  {/* 아이콘 */}
+                  <div className="absolute top-4 left-4">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/30">
+                      <ExternalLink className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-sm md:text-2xl font-bold text-white drop-shadow-lg leading-tight">
+                  </div>
+                  
+                  {/* 제목 - 하단 */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white font-bold text-lg drop-shadow-lg">
                       정책자금사례 더보기
                     </h3>
-                  </motion.div>
-                  
-                  {/* 클릭 안내 */}
-                  <motion.div
-                    animate={{ 
-                      y: [0, -5, 0],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="text-white/90 text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full border border-white/30"
-                  >
-                     블로그 이동
-                  </motion.div>
+                  </div>
                 </div>
                 
-                {/* 호버 시 테두리 효과 */}
-                <motion.div
-                  animate={{
-                    opacity: [0.0, 0.3, 0.0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute inset-0 rounded-3xl border-2 border-blue-400/30 pointer-events-none"
-                />
+                {/* 하단 흰색 텍스트 영역 */}
+                <div className="p-4 bg-white">
+                  <div className="text-gray-700 text-sm leading-relaxed mb-3">
+                    더 많은 성공사례와 정책자금 정보를 블로그에서 확인해보세요.
+                  </div>
+                  
+                  {/* 클릭 안내 */}
+                  <div className="flex items-center justify-center">
+                    <motion.div
+                      animate={{ 
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      className="text-[#4081ed] text-sm font-medium flex items-center"
+                    >
+                      블로그 바로가기
+                      <ExternalLink className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </motion.div>
+                  </div>
+                </div>
+                
+
               </motion.div>
             </motion.div>
           </div>
 
-  {/* CTA 섹션 - success-bg.jpg 배경 개선 */}
-  <div className="relative rounded-2xl overflow-hidden">
-            {/* 배경 이미지 - 중간 부분 표시 및 최적화 */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-              style={{ 
-                backgroundImage: 'url(/images/success-bg.jpg)',
-                backgroundPosition: '50% 40%',
-                backgroundSize: 'cover'
-              }}
-            />
-            
-            {/* 개선된 오버레이 - 배경이 더 잘 보이도록 투명도 조정 */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-800/60 to-blue-900/70" />
-            <div className="absolute inset-0 bg-black/20" />
-            
-            {/* 콘텐츠 */}
-            <div className="relative z-10 p-8 lg:p-12 text-white text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-2xl lg:text-3xl font-bold mb-6 drop-shadow-2xl text-white">
-                  여러분의 성공사례도 만들어보세요
-                </h3>
-                <p className="text-blue-100 mb-8 leading-relaxed drop-shadow-lg text-lg lg:text-xl">
-                  
-                  무료 상담을 통해 여러분께 맞는 최적의 솔루션을 제안해드립니다.
-                </p>
-                <motion.button 
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.2)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-200 shadow-2xl hover:shadow-3xl border-2 border-white/20"
-                  onClick={() => window.open('https://pf.kakao.com/_xokkxkG', '_blank')}
-                >
-                  무료 상담 신청하기
-                </motion.button>
-              </motion.div>
-            </div>
-            
-            {/* 추가 장식 효과 */}
-            <div className="absolute top-4 right-4 w-16 h-16 bg-white/5 rounded-full blur-xl"></div>
-            <div className="absolute bottom-4 left-4 w-12 h-12 bg-blue-400/10 rounded-full blur-lg"></div>
-          </div>
+
         </div>
       );
 
@@ -365,7 +301,7 @@ const SuccessContent = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ 
               backgroundImage: 'url(/images/success-bg.jpg)',
-              backgroundPosition: '50% 40%',
+              backgroundPosition: 'center center',
             }}
           />
           
@@ -406,130 +342,111 @@ const SuccessContent = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 25 }}
-              className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* 모달 헤더 */}
-              <div className="relative p-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-3xl">
+              <div className="relative p-4 md:p-6 bg-[#4081ed] text-white rounded-t-2xl">
                 <button
                   onClick={closeModal}
-                  className="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors z-10"
+                  className="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-8 md:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors z-10"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
                 
-                {/* 회사 정보만 표시 */}
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
-                    <selectedCase.icon className="w-8 h-8 text-white" />
+                {/* 회사 정보 */}
+                <div className="flex items-center space-x-2 md:space-x-3">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                    <selectedCase.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-3xl font-bold">{selectedCase.company}</h2>
+                    <h2 className="text-lg md:text-xl font-bold">{selectedCase.company}</h2>
+                    <p className="text-blue-100 text-xs md:text-sm">{selectedCase.industry}</p>
                   </div>
                 </div>
               </div>
               
               {/* 모달 내용 */}
-              <div className="p-8 space-y-6">
-                {/* 프로젝트 개요 */}
-                <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-200">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-white" />
+              <div className="p-4 md:p-6 space-y-4 md:space-y-5">
+                {/* 핵심 정보 */}
+                <div className="bg-blue-50 rounded-xl p-3 md:p-4 border border-blue-100">
+                  <div className="grid grid-cols-2 gap-3 md:gap-4">
+                    <div className="text-center">
+                      <div className="text-xl md:text-2xl font-bold text-[#4081ed] mb-1">{selectedCase.amount}</div>
+                      <div className="text-gray-600 text-xs md:text-sm">지원금액</div>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800">프로젝트 개요</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200/50">
-                      <div className="text-slate-500 text-sm mb-1">지원금액</div>
-                      <div className="text-slate-800 font-bold text-xl text-blue-600">{selectedCase.amount}</div>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200/50">
-                      <div className="text-slate-500 text-sm mb-1">지원 프로그램</div>
-                      <div className="text-slate-800 font-semibold">{selectedCase.program}</div>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200/50">
-                      <div className="text-slate-500 text-sm mb-1">소요 기간</div>
-                      <div className="text-slate-800 font-semibold flex items-center">
-                        <Clock className="w-4 h-4 mr-2 text-blue-600" />
+                    <div className="text-center">
+                      <div className="text-base md:text-lg font-semibold text-gray-800 mb-1 flex items-center justify-center">
+                        <Clock className="w-3 h-3 md:w-4 md:h-4 mr-1 text-[#4081ed]" />
                         {selectedCase.period}
                       </div>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200/50">
-                      <div className="text-slate-500 text-sm mb-1">업종</div>
-                      <div className="text-slate-800 font-semibold">{selectedCase.industry}</div>
+                      <div className="text-gray-600 text-xs md:text-sm">소요기간</div>
                     </div>
                   </div>
-                  <div className="mt-4 bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-slate-200/50">
-                    <div className="text-slate-500 text-sm mb-2">지원 내용</div>
-                    <p className="text-slate-700 leading-relaxed">{selectedCase.description}</p>
+                  <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-blue-200">
+                    <div className="text-gray-600 text-xs md:text-sm mb-1">지원 프로그램</div>
+                    <div className="text-gray-800 text-sm md:text-base font-medium">{selectedCase.program}</div>
+                  </div>
+                </div>
+                
+                {/* 지원 내용 */}
+                <div>
+                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
+                      <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                    </div>
+                    지원 내용
+                  </h3>
+                  <div className="bg-gray-50 rounded-xl p-3 md:p-4 border border-gray-200">
+                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">{selectedCase.description}</p>
                   </div>
                 </div>
                 
                 {/* 주요 성과 */}
-                <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-6 border-2 border-emerald-200">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
-                      <Award className="w-5 h-5 text-white" />
+                <div>
+                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
+                      <Award className="w-3 h-3 md:w-4 md:h-4 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-emerald-800">주요 성과</h3>
-                  </div>
-                  <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-emerald-300/50">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" />
-                      <p className="text-emerald-700 text-lg font-medium leading-relaxed">{selectedCase.achievement}</p>
+                    주요 성과
+                  </h3>
+                  <div className="bg-blue-50 rounded-xl p-3 md:p-4 border border-blue-200">
+                    <div className="flex items-start space-x-2 md:space-x-3">
+                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#4081ed] mt-0.5 flex-shrink-0" />
+                      <p className="text-gray-700 text-sm md:text-base font-medium leading-relaxed">{selectedCase.achievement}</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* 고객 후기 */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <Quote className="w-5 h-5 text-white" />
+                <div>
+                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+                    <div className="w-5 h-5 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
+                      <Quote className="w-3 h-3 md:w-4 md:h-4 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-blue-800">고객 한마디</h3>
-                  </div>
-                  <div className="relative bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-blue-300/50">
-                    <div className="absolute -top-3 left-6 w-6 h-6 bg-white/70 border-l border-t border-blue-300/50 transform rotate-45"></div>
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Building className="w-6 h-6 text-blue-600" />
-                      </div>
-                      <div className="flex-1">
-                        <blockquote className="text-blue-700 text-lg italic font-medium leading-relaxed mb-2">
-                          "{selectedCase.testimonial}"
-                        </blockquote>
-                        <div className="text-blue-600 text-sm font-semibold">
-                          - {selectedCase.company} 담당자
-                        </div>
-                      </div>
+                    고객 한마디
+                  </h3>
+                  <div className="bg-blue-50 rounded-xl p-3 md:p-4 border border-blue-200">
+                    <blockquote className="text-gray-700 text-sm md:text-base italic leading-relaxed mb-2">
+                      "{selectedCase.testimonial}"
+                    </blockquote>
+                    <div className="text-[#4081ed] text-xs md:text-sm font-medium text-right">
+                      - {selectedCase.company} 담당자
                     </div>
-                    <div className="absolute -top-2 -right-2 text-blue-400 text-3xl font-bold opacity-40">❝</div>
                   </div>
-                </div>
-                
-                {/* 문의하기 CTA */}
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 text-white text-center">
-                  <h4 className="text-xl font-bold mb-3">비슷한 지원이 필요하신가요?</h4>
-                  <p className="text-blue-100 mb-4 leading-relaxed">
-                    EM파트너스 전문가와 상담을 통해<br />
-                    여러분만의 성공사례를 만들어보세요.
-                  </p>
-                  <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl"
-                    onClick={() => window.open('https://pf.kakao.com/_xokkxkG', '_blank')}
-                  >
-                    무료 상담 신청하기
-                  </motion.button>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* CTA 섹션 */}
+      <FinalCTASection 
+        title="여러분의 성공사례를 만들어보세요"
+        subtitle="EM파트너스와 함께라면 더 많은 성공사례의 주인공이 될 수 있습니다.지금 바로 무료 상담을 신청해보세요."
+        buttonText="성공사례 상담 신청"
+      />
     </>
   );
 };
