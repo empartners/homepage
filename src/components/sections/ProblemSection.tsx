@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   AlertTriangle, 
@@ -27,7 +28,7 @@ const ProblemSection = () => {
     {
       icon: AlertTriangle,
       title: "심사에서 탈락한 적 있으신가요?",
-      description: "자주 반려되는 이유, 제대로 알고 계신가요?\n모호한 기준 탓에 같은 실수를 반복하기 쉽습니다.\n이젠 이유를 명확히 알고, 전략적으로 준비하세요.",
+      description: "자주 반려되는 이유, 제대로 알고 계신가요? 모호한 기준 탓에 같은 실수를 반복하기 쉽습니다.",
       color: "from-blue-600 to-blue-700",
       accentColor: "blue",
       backgroundImage: "/images/problem-cards/1.png"
@@ -35,7 +36,7 @@ const ProblemSection = () => {
     {
       icon: TrendingDown,
       title: "매출이 없어서 신청이 막히셨나요?",
-      description: "정책자금 신청 시 매출은 필수 조건입니다.\n매출 실적이 없다면, 지원 자체가 어려울 수 있어요.\n가능한 기준부터 정확히 짚고 시작해야 합니다.",
+      description: "정책자금 신청 시 매출은 필수 조건입니다. 매출 실적이 없다면, 지원 자체가 어려울 수 있어요.",
       color: "from-blue-700 to-blue-800",
       accentColor: "indigo",
       backgroundImage: "/images/problem-cards/2.png"
@@ -43,7 +44,7 @@ const ProblemSection = () => {
     {
       icon: FileText,
       title: "복잡한 절차, 어렵고 지치셨나요?",
-      description: "수많은 서류와 까다로운 요건들,\n혼자 해결하기엔 시간과 에너지가 너무 많이 듭니다.\n지금 정확한 절차부터 함께 정리해보세요.",
+      description: "수많은 서류와 까다로운 요건들, 혼자 해결하기엔 시간과 에너지가 너무 많이 듭니다.",
       color: "from-blue-800 to-blue-900",
       accentColor: "slate",
       backgroundImage: "/images/problem-cards/3.png"
@@ -131,6 +132,29 @@ const ProblemSection = () => {
           }} />
         </div>
         
+        {/* 배경 로고 - 데스크톱에서만 */}
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 3, -3, 0],
+            scale: [1, 1.05, 0.95, 1]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden md:block"
+        >
+          <Image
+            src="/images/logo-180-trans.png"
+            alt="EM파트너스 로고"
+            width={200}
+            height={200}
+            className="w-60 h-60 object-contain"
+          />
+        </motion.div>
+
         {/* 떠다니는 장식 요소들 */}
         <motion.div
           animate={{ 
@@ -172,293 +196,240 @@ const ProblemSection = () => {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 헤더 */}
-          <div className="text-center mb-16">
+          {/* 메인 컨텐츠 - 좌우 분할 레이아웃 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[600px]">
+            
+            {/* 왼쪽 헤드라인 섹션 */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="inline-block mb-8 relative"
+              className="lg:pr-8"
             >
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-black korean-text whitespace-nowrap text-white relative z-10 pb-2">
-                이런 어려움 겪고 계시나요?
-              </h2>
-              {/* 두꺼운 밑줄 강조 */}
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="absolute bottom-0 left-0 h-3 md:h-4 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 shadow-lg"
-              />
-              {/* 글로우 효과 */}
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: "100%", opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="absolute bottom-0 left-0 h-3 md:h-4 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 blur-sm opacity-60"
-              />
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed korean-text"
-            >
-              <span className="block">정책자금 신청 과정에서 마주하는 다양한 어려움들,</span>
-              <span className="block">이제 EM 파트너스와 함께 해결하세요!</span>
-            </motion.p>
-          </div>
-
-          {/* 문제점 그리드 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {problems.map((problem, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.2,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -15, 
-                  scale: 1.03,
-                  rotateY: 5,
-                  transition: { duration: 0.3 }
-                }}
-                className="relative group perspective-1000"
-              >
-                <div className={`relative bg-gradient-to-br ${problem.color} p-8 rounded-3xl shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-500 border border-white/20 backdrop-blur-sm overflow-hidden min-h-[400px] md:min-h-[450px] flex flex-col transform hover:-translate-y-2`}>
-                  {/* 배경 이미지 - 데스크톱 */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 hidden md:block"
-                    style={{ backgroundImage: `url(${problem.backgroundImage})` }}
-                  />
+              <div className="mb-6">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-blue-400 font-semibold text-lg mb-4 tracking-wide"
+                >
+                  중소기업 지원센터
+                </motion.p>
+                
+                <div className="flex items-center space-x-4 mb-6">
+                  <motion.h2
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-5xl md:text-4xl lg:text-5xl xl:text-6xl font-black korean-text text-white leading-tight"
+                  >
+                    <span className="block">EM 파트너스 </span>
+                  </motion.h2>
                   
-                  {/* 배경 이미지 - 모바일 */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 md:hidden"
-                    style={{ backgroundImage: `url(/images/problem-cards/mobile-${index + 1}.png)` }}
-                  />
-                  
-                  {/* 그라데이션 오버레이 */}
-                  <div 
-                    className={`absolute inset-0 bg-gradient-to-br ${problem.color}`}
-                    style={{ opacity: 0.1 }}
-                  />
-                  
-                  {/* 배경 애니메이션 효과 */}
+                  {/* 모바일용 로고 - 헤더 옆 */}
                   <motion.div
                     animate={{
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 180, 360],
-                      opacity: [0.1, 0.3, 0.1]
+                      y: [0, -8, 0],
+                      rotate: [0, 3, -3, 0],
+                      scale: [1, 1.05, 0.95, 1]
                     }}
                     transition={{
-                      duration: 8,
+                      duration: 4,
                       repeat: Infinity,
-                      ease: "linear",
-                      delay: index * 2
+                      ease: "easeInOut"
                     }}
-                    className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-xl"
-                  />
-                  
-                  {/* 호버 시 배경 효과 */}
+                    className="block md:hidden flex-shrink-0 opacity-80 pointer-events-none"
+                  >
+                    <Image
+                      src="/images/logo-180-trans.png"
+                      alt="EM파트너스 로고"
+                      width={80}
+                      height={80}
+                      className="w-16 h-16 object-contain"
+                    />
+                  </motion.div>
+                </div>
+                
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "60%" }}
+                  transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="h-1 bg-gradient-to-r from-blue-400 to-blue-600 mb-8"
+                />
+              </div>
+              
+              <div className="text-xl text-gray-300 leading-relaxed korean-text mb-8">
+                {/* 데스크톱 버전 */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="hidden md:block"
+                >
+                  정책자금부터 대출까지, 복잡한 금융 절차를 
+                  <span className="text-blue-400 font-semibold"> 한 번에 해결</span>하는 
+                  전문 컨설팅 서비스입니다.
+                </motion.p>
+                
+                {/* 모바일 버전 - 3줄 줄바꿈 */}
+                <div className="block md:hidden space-y-2">
                   <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent rounded-3xl"
-                  />
-                  
-                  {/* 내용 */}
-                  <div className="relative z-10 flex-1 flex flex-col justify-center">
-                    <motion.h3 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                      className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-6 leading-tight korean-text"
-                    >
-                      {problem.title}
-                    </motion.h3>
-                    <motion.p 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
-                      className="text-blue-100 leading-relaxed whitespace-pre-line text-base"
-                    >
-                      {problem.description}
-                    </motion.p>
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    정책자금부터 대출까지,
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    복잡한 금융 절차를 <span className="text-blue-400 font-semibold">한 번에 해결</span>하는
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    viewport={{ once: true }}
+                  >
+                    전문 컨설팅 서비스입니다.
+                  </motion.div>
+                </div>
+              </div>
+              
+              <motion.button
+                onClick={handleConsultationClick}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] hover:from-[#2d5ce8] hover:to-[#1e40af] text-white font-bold py-4 px-8 rounded-xl text-lg shadow-2xl transition-all duration-300 group overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center space-x-2">
+                  <span>무료 상담받기</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.div>
+                </span>
+                
+                {/* 글로우 효과 */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] rounded-xl blur-xl -z-10"
+                />
+              </motion.button>
+            </motion.div>
+
+            {/* 오른쪽 카드 섹션 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              {problems.map((problem, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.1 + 0.3,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    x: 10,
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="relative group"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-white/15">
+                    {/* 배경 그라데이션 효과 */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`absolute inset-0 bg-gradient-to-r ${problem.color} opacity-10 rounded-2xl`}
+                    />
+                    
+                    <div className="relative z-10 flex items-start space-x-4">
+                      {/* 아이콘 */}
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                        className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${problem.color} rounded-xl flex items-center justify-center shadow-lg`}
+                      >
+                        <problem.icon className="w-6 h-6 text-white" />
+                      </motion.div>
+                      
+                      {/* 내용 */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl font-bold text-white mb-2 korean-text leading-snug">
+                          {problem.title}
+                        </h3>
+                        <p className="text-gray-300 text-sm leading-relaxed">
+                          {problem.description}
+                        </p>
+                      </div>
+                      
+                      {/* 화살표 */}
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
+                        className="flex-shrink-0 text-blue-400 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </motion.div>
+                    </div>
+                    
+                    {/* 호버 시 테두리 글로우 */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 rounded-2xl border-2 border-blue-400/30 pointer-events-none"
+                    />
                   </div>
                   
-                  {/* 카드 테두리 글로우 */}
+                  {/* 카드 그림자 효과 */}
                   <motion.div
                     animate={{
-                      opacity: [0.3, 0.8, 0.3],
+                      scale: [1, 1.02, 1],
+                      opacity: [0.2, 0.4, 0.2]
                     }}
                     transition={{
                       duration: 4,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: index * 1.5
+                      delay: index * 0.8
                     }}
-                    className="absolute inset-0 rounded-3xl border-2 border-white/20 pointer-events-none"
+                    className={`absolute inset-0 bg-gradient-to-br ${problem.color} rounded-2xl blur-xl -z-10 opacity-30`}
                   />
-                </div>
-                
-                {/* 카드 그림자 효과 */}
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.3, 0.5, 0.3]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.8
-                  }}
-                  className={`absolute inset-0 bg-gradient-to-br ${problem.color} rounded-3xl blur-xl -z-10 opacity-40`}
-                />
-                
-                {/* 추가 깊이 그림자 */}
-                <div className="absolute inset-0 bg-black/20 rounded-3xl blur-2xl transform translate-y-4 scale-95 -z-20" />
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-
-          {/* CTA 섹션 */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center relative"
-          >
-            <div className="relative bg-gradient-to-r from-slate-800/50 to-blue-900/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10 overflow-hidden">
-              {/* 배경 이미지 - Ken Burns 효과 */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1.05],
-                  x: [0, -20, 10],
-                  y: [0, -10, 5]
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  repeatType: "reverse"
-                }}
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-                style={{ backgroundImage: 'url(/images/main-bg-001.jpg)' }}
-              />
-              
-              {/* 그라데이션 오버레이 */}
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-blue-900/30 to-slate-900/40" />
-              
-              {/* 배경 효과 */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.1, 0.3, 0.1]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl"
-              />
-              
-              <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 korean-text whitespace-nowrap">
-                  이제 혼자 고민하지 마세요
-                </h3>
-                <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-                  EM 파트너스 전문 컨설턴트가 처음부터 끝까지 함께합니다
-                </p>
-                
-                <motion.button
-                  onClick={handleConsultationClick}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] hover:from-[#2d5ce8] hover:to-[#1e40af] text-white font-bold py-4 px-10 rounded-xl text-lg shadow-2xl transition-all duration-300 group overflow-hidden"
-                >
-                  {/* 스파클 효과 */}
-                  <motion.div
-                    animate={{
-                      opacity: [0, 1, 0],
-                      scale: [0.5, 1, 0.5]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 0.5
-                    }}
-                    className="absolute top-2 left-4 w-2 h-2 bg-white rounded-full"
-                  />
-                  <motion.div
-                    animate={{
-                      opacity: [0, 1, 0],
-                      scale: [0.5, 1, 0.5]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1
-                    }}
-                    className="absolute bottom-3 right-6 w-1.5 h-1.5 bg-white rounded-full"
-                  />
-                  
-                  {/* 배경 물결 효과 */}
-                  <motion.div
-                    animate={{
-                      x: [-100, 100],
-                      opacity: [0, 0.3, 0]
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      repeatDelay: 1
-                    }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -skew-x-12"
-                  />
-                  
-                  {/* 버튼 텍스트 */}
-                  <span className="relative z-10 flex items-center justify-center space-x-2">
-                    
-                    <span>전문가와 상담하기</span>
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <ArrowRight className="w-5 h-5" />
-                    </motion.div>
-                  </span>
-                  
-                  {/* 글로우 효과 */}
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.05, 1],
-                      opacity: [0.3, 0.6, 0.3]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] rounded-xl blur-xl -z-10"
-                  />
-                </motion.button>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

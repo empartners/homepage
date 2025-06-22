@@ -59,6 +59,50 @@ const HeroSection = () => {
       setRandomNumber(Math.floor(Math.random() * 5) + 1);
     }, 30000); // 30초마다 업데이트
 
+    // 모바일에서 부드러운 자동 스크롤
+    const isMobile = window.innerWidth < 768; // md breakpoint
+    if (isMobile) {
+      const autoScrollTimer = setTimeout(() => {
+        // 다음 섹션으로 매우 부드럽고 천천히 스크롤
+        const nextSection = document.querySelector('section:nth-of-type(2)'); // ProblemSection
+        if (nextSection) {
+          // 초부드러운 스크롤을 위한 커스텀 애니메이션
+          const startPosition = window.pageYOffset;
+          const targetPosition = (nextSection as HTMLElement).offsetTop;
+          const distance = targetPosition - startPosition;
+          const duration = 2500; // 2.5초 동안 천천히 스크롤
+          let start: number | null = null;
+
+          function step(timestamp: number) {
+            if (!start) start = timestamp;
+            const progress = timestamp - start;
+            const percentage = Math.min(progress / duration, 1);
+            
+            // 더욱 부드러운 easeInOutQuart 이징 함수 (더 느리고 자연스럽게)
+            const ease = percentage < 0.5
+              ? 8 * percentage * percentage * percentage * percentage
+              : 1 - Math.pow(-2 * percentage + 2, 4) / 2;
+            
+            // 추가적인 부드러움을 위한 미세 조정
+            const smoothEase = ease * (2 - ease); // 더 부드러운 곡선
+            
+            window.scrollTo(0, startPosition + distance * smoothEase);
+            
+            if (progress < duration) {
+              window.requestAnimationFrame(step);
+            }
+          }
+          
+          window.requestAnimationFrame(step);
+        }
+      }, 3500); // 3.5초 후 실행 (약간 빠르게)
+
+      return () => {
+        clearInterval(interval);
+        clearTimeout(autoScrollTimer);
+      };
+    }
+
     return () => clearInterval(interval);
   }, []);
 
