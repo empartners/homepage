@@ -32,94 +32,139 @@ const SupportContent = () => {
           <div className="space-y-6">
           <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
             <h3 className="text-xl font-semibold text-white mb-6">현재 진행 중인 사업</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                    title: '중소기업 챌린지진단 지원사업 2차',
-                agency: '중소벤처기업부',
-                    status: '진행중',
-                    description: '중소기업의 경영진단 및 개선 컨설팅 지원',
-                  icon: Target
+                title: '세무 법인 컨설팅',
+                agency: '제휴 세무법인 / EM파트너스',
+                status: '상시접수',
+                description: '월 기장 및 정책자금 맞춤 세무설계 / 절세 전략 자문',
+                criteria: '사업자등록 여부, 매출 규모, 세무 리스크 여부 등',
+                icon: Target
               },
               {
-                    title: '중소기업기술혁신개발사업(구매연계·상생협력) 하반기',
-                    agency: '중소벤처기업부',
-                    status: '진행중',
-                    description: '구매연계형 기술개발 및 상생협력 지원',
-                  icon: Zap
+                title: '여성기업 확인서',
+                agency: '여성기업종합 인증 / 공공입찰 정보포털(여성가족부)',
+                status: '연중 상시',
+                description: '여성기업 확인 발급 / 지원사업 참여 가능',
+                criteria: '여성 대표 여부, 지분율 50% 이상, 실질 경영권 보유 등',
+                icon: Users
               },
               {
-                    title: '글로벌 팁스(사업화) 창업기업 모집',
-                    agency: '중소벤처기업부',
-                status: '모집중',
-                    description: '해외진출형 창업기업 사업화 지원',
-                  icon: Globe
+                title: '기업부설 연구소 설립',
+                agency: '한국산업기술진흥협회',
+                status: '상시접수',
+                description: '기업부설연구소 인정 / 세액공제 및 정부사업 가점',
+                criteria: '연구공간 확보, 전담인력 확보, 기술개발 가능성 등',
+                icon: Zap
               },
               {
-                    title: 'IFA 베를린 스타트업 사절단',
-                agency: '중소벤처기업부',
-                status: '모집중',
-                    description: '독일 베를린 스타트업 전시회 참가 지원',
-                  icon: Rocket
+                title: '화장품 판매업 신고',
+                agency: '지방자치단체 (보건환경과 등)',
+                status: '상시접수',
+                description: '판매업 등록 완료 / 유통 가능 / 위생교육 연계',
+                criteria: '책임판매관리자 확보, 매장 확보 여부, 조건 충족',
+                icon: Building
+              },
+              {
+                title: '벤처기업 인증',
+                agency: '기술보증기금/벤처확인기관',
+                status: '수시모집(분기별)',
+                description: '인증서 발급 / 정책자금 및 세제감면,투자유치 가점',
+                criteria: '기술성 평가 통과, R&D 투자비율, 외부 투자 실적 등',
+                icon: Rocket
+              },
+              {
+                title: '온라인 비즈니스 종합지원',
+                agency: 'EM파트너스',
+                status: '상시접수',
+                description: '전자상거래 기반 제조·소상공 사업자 대상 종합 컨설팅 / 정책자금 연계 지원',
+                criteria: '전자상거래 도소매업 등록, 제품 소싱·운영 경험 등',
+                icon: Globe
+              },
+              {
+                title: '대표님 맞춤 가이드',
+                agency: 'EM파트너스',
+                status: '상시접수',
+                description: '정책자금 / 세무 / 인증 통합 진단 및 방향성 컨설팅',
+                criteria: '업종/매출/경력 기반, 정책자금 적합성 및 실행 가능성 등',
+                icon: Star
                   }
                 ].map((item, index) => (
                 <div key={index} className="bg-white/5 rounded-lg shadow-md overflow-hidden border border-white/20 backdrop-blur-sm">
                   <div className="bg-gradient-to-r from-blue-600/80 to-blue-700/80 p-4 text-white backdrop-blur-sm">
                       <div className="flex items-center justify-between mb-3">
                         <item.icon className="w-8 h-8" />
-                        <span className="bg-white/20 px-2 py-1 rounded-full text-xs font-medium">
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          item.status === '상시접수' ? 'bg-green-500/20 text-green-200' :
+                          item.status === '연중 상시' ? 'bg-green-500/20 text-green-200' :
+                          item.status === '수시모집(분기별)' ? 'bg-orange-500/20 text-orange-200' :
+                          'bg-white/20 text-white'
+                        }`}>
                           {item.status}
                         </span>
                       </div>
                       <h4 className="font-bold text-lg mb-2">{item.title}</h4>
                     <p className="text-sm text-gray-200">{item.agency}</p>
                     </div>
-                  <div className="p-4 bg-white/5">
-                    <p className="text-gray-300 text-sm">{item.description}</p>
+                  <div className="p-4 bg-white/5 space-y-3">
+                    <div>
+                      <p className="text-gray-300 text-sm mb-2">{item.description}</p>
+                    </div>
+                    <div className="border-t border-white/10 pt-3">
+                      <p className="text-xs text-gray-400 mb-1">선정기준</p>
+                      <p className="text-gray-300 text-xs">{item.criteria}</p>
+                    </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
+          {/* 상시 모집 사업 섹션 */}
           <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
             <h3 className="text-xl font-semibold text-white mb-6">상시 모집 사업</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   {
                     title: '중소기업 기술혁신개발사업',
+                  agency: '중소벤처기업부',
                     description: 'R&D, 기술혁신 지원',
-                    agency: '중소벤처기업부',
-                    type: '상시모집'
+                  status: '상시모집',
+                  icon: Zap
                   },
                   {
                     title: '스마트공장 지원사업',
+                  agency: '중소벤처기업부',
                     description: '공정 혁신 지원',
-                    agency: '중소벤처기업부',
-                    type: '상시모집'
+                  status: '상시모집',
+                  icon: Building
                   },
                   {
                     title: '기술보호 바우처',
+                  agency: '중소벤처기업부',
                     description: '기술보호 단계별 컨설팅 지원',
-                    agency: '중소벤처기업부',
-                    type: '상시모집'
+                  status: '상시모집',
+                  icon: Target
                   },
                   {
                     title: '혁신바우처',
+                  agency: '중소벤처기업부',
                     description: '컨설팅·기술·마케팅 비용 지원',
-                    agency: '중소벤처기업부',
-                    type: '상시모집'
+                  status: '상시모집',
+                  icon: Rocket
                   }
                 ].map((item, index) => (
                 <div key={index} className="bg-white/5 rounded-lg p-4 border border-white/20 backdrop-blur-sm">
                     <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-semibold text-white">{item.title}</h4>
-                    <span className="bg-green-500/20 text-green-200 px-2 py-1 rounded text-xs border border-green-400/30">
-                        {item.type}
+                    <item.icon className="w-6 h-6 text-white" />
+                    <span className="bg-green-500/20 px-2 py-1 rounded-full text-xs font-medium text-green-200">
+                      {item.status}
                       </span>
-                    </div>
-                  <p className="text-gray-300 text-sm mb-2">{item.description}</p>
-                  <p className="text-gray-400 text-xs">{item.agency}</p>
+                  </div>
+                  <h4 className="font-bold text-white text-sm mb-2">{item.title}</h4>
+                  <p className="text-xs text-gray-300 mb-2">{item.agency}</p>
+                  <p className="text-xs text-gray-400">{item.description}</p>
                   </div>
                 ))}
             </div>
@@ -176,9 +221,6 @@ const SupportContent = () => {
                     <span className="text-gray-200">{item.region}</span>
                     </div>
                   <p className="text-gray-300">{item.description}</p>
-                  <button className="w-full bg-blue-600/80 text-white py-2 px-4 rounded-lg hover:bg-blue-700/80 transition-colors backdrop-blur-sm">
-                      상세보기 및 상담
-                    </button>
                   </div>
                 </div>
               ))}
@@ -256,9 +298,6 @@ const SupportContent = () => {
                     <span className="text-gray-200 text-sm font-medium">{item.type}</span>
                   </div>
                   <p className="text-gray-300">{item.description}</p>
-                  <button className="w-full bg-blue-600/80 text-white py-2 px-4 rounded-lg hover:bg-blue-700/80 transition-colors backdrop-blur-sm">
-                      상세보기 및 상담
-                    </button>
                   </div>
                 </div>
               ))}
@@ -345,9 +384,6 @@ const SupportContent = () => {
                       <span className="text-sm text-gray-300">지원: {item.amount}</span>
                     </div>
                   </div>
-                  <button className="w-full bg-blue-600/80 text-white py-2 px-4 rounded-lg hover:bg-blue-700/80 transition-colors backdrop-blur-sm">
-                      상세보기 및 상담
-                    </button>
                   </div>
                 </div>
               ))}

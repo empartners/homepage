@@ -32,7 +32,7 @@ const NoticeContent = () => {
             <div className="flex justify-center mb-6">
               <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm border border-white/20">
                 <Bell className="w-12 h-12 text-white" />
-              </div>
+          </div>
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">공지사항</h2>
             <p className="text-gray-200 text-lg mb-8">EM파트너스의 최신 소식과 정책자금 정보를 확인하세요</p>
@@ -80,7 +80,7 @@ const NoticeContent = () => {
                       </div>
                       <div className="col-span-2 text-center text-xs md:text-sm text-gray-600">관리자</div>
                       <div className="col-span-3 md:col-span-2 text-center text-xs md:text-sm text-gray-600">2025-06-22</div>
-                    </div>
+              </div>
                   </button>
                   
                   {/* 게시글 상세 내용 (토글) */}
@@ -92,8 +92,8 @@ const NoticeContent = () => {
                           <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
                             <span>작성자: 관리자</span>
                             <span>작성일: 2025-06-22</span>
-                          </div>
-                        </div>
+              </div>
+            </div>
                         
                         <div className="text-gray-700 leading-relaxed">
                           <p className="mb-4">EM파트너스의 정책자금 컨설팅은 아래와 같은 절차로 진행됩니다:</p>
@@ -110,8 +110,8 @@ const NoticeContent = () => {
                             <p className="text-blue-800">
                               <strong>→ 평균 소요기간은 2주~4주입니다.</strong> 대표님 일정에 맞춰 탄력적으로 조정 가능합니다.
                             </p>
-                          </div>
-                          
+          </div>
+
                           <p className="text-gray-700">
                             자세한 컨설팅 및 자금 상담은 고객센터를 통해 접수 부탁드립니다.
                           </p>
@@ -232,7 +232,7 @@ const NoticeContent = () => {
                   )}
                 </div>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       )
@@ -255,79 +255,79 @@ const NoticeContent = () => {
           <div className="space-y-6">
             <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
               <h3 className="text-xl font-semibold text-white mb-6">자주 묻는 질문들</h3>
-              <div className="space-y-4">
-                {[
-                  {
-                    category: '자격요건',
-                    question: '정책자금 신청을 위한 자격 요건은 어떻게 되나요?',
-                    answer: '대부분의 정책자금은 일정한 자격 요건을 충족해야 합니다. 일반적으로 사업체의 업력, 규모, 매출액, 업종 등이 심사 기준이 되며, 일부 제도는 특정 지역 또는 업종에 한정되기도 합니다. 자세한 기준은 해당 제도 운영기관의 홈페이지나 담당자에게 문의하시면 확인 가능합니다.'
-                  },
-                  {
-                    category: '지원한도',
-                    question: '최대 얼마까지 지원받을 수 있나요?',
-                    answer: '자금별 한도는 다르지만, 보통 최대 5천만 원까지 지원 가능하며, 상환 기간은 최장 5년까지입니다. 다만 이는 사업 규모, 매출, 신용 등급 등에 따라 달라질 수 있습니다.'
-                  },
-                  {
-                    category: '신청방법',
-                    question: '신청은 어디에서 하나요?',
-                    answer: '각 지방자치단체 및 금융기관에서 운영하는 온라인 포털 또는 오프라인 접수처를 통해 신청할 수 있습니다. 접수 기간과 절차는 매년 변경될 수 있으니, 사전에 꼭 확인하세요.'
-                  },
-                  {
-                    category: '제출서류',
-                    question: '어떤 서류를 제출해야 하나요?',
-                    answer: '일반적으로 사업자등록증, 재무제표, 부가세과세표준증명원 등이 기본 제출 서류입니다. 제도별로 상이한 서류가 요구될 수 있으므로, 반드시 공고문 또는 신청 페이지를 통해 정확한 서류 목록을 확인하시기 바랍니다.'
-                  },
-                  {
-                    category: '신용점수',
-                    question: '신용점수가 낮아도 신청할 수 있나요?',
-                    answer: '네, 가능합니다. NICE 기준 신용점수 839점 이하인 경우에도 \'저신용 전용 정책자금\'으로 신청할 수 있으며, 사업성과 미래 성장 가능성을 중심으로 심사가 진행됩니다.'
-                  },
-                  {
-                    category: '보증서발급',
-                    question: '보증서 발급 절차는 어떻게 되나요?',
-                    answer: '보증기관의 온라인 자동발급 시스템을 통해 간편하게 처리됩니다. 신청 후 서류 제출 및 간단한 상담을 거쳐 발급이 완료됩니다.'
-                  },
-                  {
-                    category: '수수료',
-                    question: '수수료나 보증료가 발생하나요?',
-                    answer: '일부 정책자금은 보증료(0.2%~0.5%)가 발생할 수 있습니다. 자금별로 상이하므로 신청 전 세부 조건을 확인하는 것이 좋습니다.'
-                  },
-                  {
-                    category: '재신청',
-                    question: '반복 신청도 가능한가요?',
-                    answer: '네, 심사 통과 후 1년이 지나면 재신청이 가능합니다. 특히 연속 지원 시 사업 성장성과 신뢰도가 인정되어 우대 심사를 받을 수 있습니다.'
-                  },
-                  {
-                    category: '기존대출',
-                    question: '이미 대출이 있는데 정책자금 추가로 받을 수 있나요?',
-                    answer: '사업 유형과 시기에 따라 다릅니다. 무료 사전 진단을 통해 정확히 안내드리니, 언제든 부담 없이 문의 주세요.'
-                  }
-                ].map((faq, index) => (
-                  <div key={index} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-                    <button
-                      onClick={() => toggleFaq(index)}
-                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex items-center space-x-3">
-                        <span className="text-blue-600 text-sm font-medium px-2 py-1 bg-blue-50 rounded">
-                          {faq.category}
-                        </span>
-                        <span className="text-gray-900 font-medium">{faq.question}</span>
-                      </div>
-                      {openFaqIndex === index ? (
-                        <ChevronUp className="w-5 h-5 text-gray-500" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-500" />
-                      )}
-                    </button>
-                    {openFaqIndex === index && (
-                      <div className="px-6 pb-4 border-t border-gray-100">
-                        <p className="text-gray-600 leading-relaxed pt-4">{faq.answer}</p>
-                      </div>
-                    )}
+          <div className="space-y-4">
+            {[
+              {
+                category: '자격요건',
+                question: '정책자금 신청을 위한 자격 요건은 어떻게 되나요?',
+                answer: '대부분의 정책자금은 일정한 자격 요건을 충족해야 합니다. 일반적으로 사업체의 업력, 규모, 매출액, 업종 등이 심사 기준이 되며, 일부 제도는 특정 지역 또는 업종에 한정되기도 합니다. 자세한 기준은 해당 제도 운영기관의 홈페이지나 담당자에게 문의하시면 확인 가능합니다.'
+              },
+              {
+                category: '지원한도',
+                question: '최대 얼마까지 지원받을 수 있나요?',
+                answer: '자금별 한도는 다르지만, 보통 최대 5천만 원까지 지원 가능하며, 상환 기간은 최장 5년까지입니다. 다만 이는 사업 규모, 매출, 신용 등급 등에 따라 달라질 수 있습니다.'
+              },
+              {
+                category: '신청방법',
+                question: '신청은 어디에서 하나요?',
+                answer: '각 지방자치단체 및 금융기관에서 운영하는 온라인 포털 또는 오프라인 접수처를 통해 신청할 수 있습니다. 접수 기간과 절차는 매년 변경될 수 있으니, 사전에 꼭 확인하세요.'
+              },
+              {
+                category: '제출서류',
+                question: '어떤 서류를 제출해야 하나요?',
+                answer: '일반적으로 사업자등록증, 재무제표, 부가세과세표준증명원 등이 기본 제출 서류입니다. 제도별로 상이한 서류가 요구될 수 있으므로, 반드시 공고문 또는 신청 페이지를 통해 정확한 서류 목록을 확인하시기 바랍니다.'
+              },
+              {
+                category: '신용점수',
+                question: '신용점수가 낮아도 신청할 수 있나요?',
+                answer: '네, 가능합니다. NICE 기준 신용점수 839점 이하인 경우에도 \'저신용 전용 정책자금\'으로 신청할 수 있으며, 사업성과 미래 성장 가능성을 중심으로 심사가 진행됩니다.'
+              },
+              {
+                category: '보증서발급',
+                question: '보증서 발급 절차는 어떻게 되나요?',
+                answer: '보증기관의 온라인 자동발급 시스템을 통해 간편하게 처리됩니다. 신청 후 서류 제출 및 간단한 상담을 거쳐 발급이 완료됩니다.'
+              },
+              {
+                category: '수수료',
+                question: '수수료나 보증료가 발생하나요?',
+                answer: '일부 정책자금은 보증료(0.2%~0.5%)가 발생할 수 있습니다. 자금별로 상이하므로 신청 전 세부 조건을 확인하는 것이 좋습니다.'
+              },
+              {
+                category: '재신청',
+                question: '반복 신청도 가능한가요?',
+                answer: '네, 심사 통과 후 1년이 지나면 재신청이 가능합니다. 특히 연속 지원 시 사업 성장성과 신뢰도가 인정되어 우대 심사를 받을 수 있습니다.'
+              },
+              {
+                category: '기존대출',
+                question: '이미 대출이 있는데 정책자금 추가로 받을 수 있나요?',
+                answer: '사업 유형과 시기에 따라 다릅니다. 무료 사전 진단을 통해 정확히 안내드리니, 언제든 부담 없이 문의 주세요.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="text-blue-600 text-sm font-medium px-2 py-1 bg-blue-50 rounded">
+                      {faq.category}
+                    </span>
+                    <span className="text-gray-900 font-medium">{faq.question}</span>
                   </div>
-                ))}
+                  {openFaqIndex === index ? (
+                    <ChevronUp className="w-5 h-5 text-gray-500" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                  )}
+                </button>
+                {openFaqIndex === index && (
+                  <div className="px-6 pb-4 border-t border-gray-100">
+                    <p className="text-gray-600 leading-relaxed pt-4">{faq.answer}</p>
+                  </div>
+                )}
               </div>
+            ))}
+          </div>
             </div>
           </div>
         </div>

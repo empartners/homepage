@@ -124,42 +124,42 @@ export default function Home() {
         ))}
       </div>
       
-      <main className="min-h-screen">
+    <main className="min-h-screen">
         {/* Hero Section */}
         <section className="scroll-section parallax-section in-view">
-          <HeroSection />
+      <HeroSection />
         </section>
 
         {/* Scrolling Banner */}
         <div className="scroll-section-banner">
-          <ScrollingBanner />
+      <ScrollingBanner />
         </div>
 
         {/* Problem Section */}
         <section className="scroll-section parallax-section">
-          <ProblemSection />
+      <ProblemSection />
         </section>
 
         {/* Solution Section */}
         <section className="scroll-section parallax-section">
-          <SolutionSection />
+      <SolutionSection />
         </section>
 
         {/* Social Proof Section */}
         <section className="scroll-section parallax-section">
-          <SocialProofSection />
+      <SocialProofSection />
         </section>
 
         {/* FAQ Section */}
         <section className="scroll-section">
-          <FAQSection />
+      <FAQSection />
         </section>
 
         {/* Final CTA Section */}
         <section className="scroll-section final-section">
-          <FinalCTASection />
+      <FinalCTASection />
         </section>
-      </main>
+    </main>
     </>
   );
 }

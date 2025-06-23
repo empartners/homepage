@@ -20,7 +20,7 @@ export const COMPANY_CONFIG = {
   // 연락처 정보
   contact: {
     phone: "1688-7510",
-    email: "empartners77@gmail.com",
+    email: "emmainc@empartners.co.kr",
     address: "부산시 남구 수영로 312",
     addressDetail: "센츄리시티 1515호",
     businessNumber: "846-60-00749",

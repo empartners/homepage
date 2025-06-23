@@ -32,10 +32,10 @@ export default function StructuredData({ type = 'organization', data }: Structur
           slogan: '정책자금 신청부터 승인까지 원스톱 관리',
           contactPoint: [
             {
-              '@type': 'ContactPoint',
-              telephone: COMPANY_CONFIG.contact.phone,
+            '@type': 'ContactPoint',
+            telephone: COMPANY_CONFIG.contact.phone,
               contactType: 'customer service',
-              areaServed: 'KR',
+            areaServed: 'KR',
               availableLanguage: ['Korean'],
               hoursAvailable: {
                 '@type': 'OpeningHoursSpecification',
