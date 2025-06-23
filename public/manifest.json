@@ -1,0 +1,33 @@
+{
+  "name": "EM파트너스 - 정책자금 전문 컨설팅",
+  "short_name": "EM파트너스",
+  "description": "승인 경력 자수의 정책자금 전문가가 1:1 맞춤 컨설팅으로 95% 승인률을 보장합니다.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4081ed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/emfavi.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/logo-180-trans.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "finance", "productivity"],
+  "lang": "ko",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+} 

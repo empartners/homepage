@@ -47,7 +47,7 @@ const SocialProofSection = () => {
   ];
 
   return (
-    <section className="relative pt-0 pb-8 md:py-20 overflow-hidden">
+    <section className="relative pt-0 pb-8 md:py-20 overflow-hidden parallax-element">
       {/* 배경 그라데이션 */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
       

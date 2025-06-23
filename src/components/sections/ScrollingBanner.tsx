@@ -31,12 +31,12 @@ const ScrollingBanner = () => {
   const duplicatedItems = [...displayItems, ...displayItems];
 
   return (
-    <div className="bg-white py-4 md:py-6 overflow-hidden relative border-y border-gray-200">
+    <div className="bg-white w-full py-4 md:py-6 overflow-hidden relative border-y border-gray-200" style={{ scrollSnapAlign: 'none' }}>
       <div 
-        className="scroll-container"
+        className="banner-scroll-container"
         style={{
           display: 'flex',
-          animation: `scroll ${isMobile ? '15s' : '25s'} linear infinite`,
+          animation: `bannerScroll ${isMobile ? '15s' : '25s'} linear infinite`,
           willChange: 'transform',
         }}
       >
@@ -62,7 +62,7 @@ const ScrollingBanner = () => {
       <div className="absolute right-0 top-0 w-16 md:w-24 h-full bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
       
       <style jsx>{`
-        @keyframes scroll {
+        @keyframes bannerScroll {
           0% {
             transform: translateX(0);
           }
@@ -71,7 +71,7 @@ const ScrollingBanner = () => {
           }
         }
         
-        .scroll-container {
+        .banner-scroll-container {
           transform: translateZ(0);
           backface-visibility: hidden;
           perspective: 1000px;

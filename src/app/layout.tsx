@@ -23,10 +23,14 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: `${COMPANY_CONFIG.name} | ${COMPANY_CONFIG.seo.title}`,
-  description: `${COMPANY_CONFIG.business.description} ${COMPANY_CONFIG.name}와 함께하세요.`,
-  keywords: `${COMPANY_CONFIG.seo.keywords}, ${COMPANY_CONFIG.name}`,
-  authors: [{ name: COMPANY_CONFIG.name }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://empartners.co.kr'),
+  title: {
+    default: `${COMPANY_CONFIG.name} | ${COMPANY_CONFIG.seo.title}`,
+    template: `%s | ${COMPANY_CONFIG.name}`
+  },
+  description: COMPANY_CONFIG.seo.description,
+  keywords: COMPANY_CONFIG.seo.keywords,
+  authors: [{ name: COMPANY_CONFIG.name, url: process.env.NEXT_PUBLIC_SITE_URL || 'https://empartners.co.kr' }],
   creator: COMPANY_CONFIG.name,
   publisher: COMPANY_CONFIG.name,
   formatDetection: {
@@ -35,20 +39,26 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/images/emfavi.ico',
+    icon: [
+      { url: '/images/emfavi.ico', sizes: '16x16', type: 'image/x-icon' },
+      { url: '/images/emfavi.ico', sizes: '32x32', type: 'image/x-icon' },
+    ],
     shortcut: '/images/emfavi.ico',
-    apple: '/images/emfavi.ico',
+    apple: [
+      { url: '/images/emfavi.ico', sizes: '180x180', type: 'image/x-icon' },
+    ],
   },
+  manifest: '/manifest.json',
   openGraph: {
     title: `${COMPANY_CONFIG.name} | ${COMPANY_CONFIG.seo.title}`,
-    description: `${COMPANY_CONFIG.business.description} ${COMPANY_CONFIG.name}와 함께하세요.`,
+    description: COMPANY_CONFIG.seo.ogDescription,
     type: "website",
     locale: "ko_KR",
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://empartners.co.kr',
+    url: '/',
     siteName: COMPANY_CONFIG.name,
     images: [
       {
-        url: '/images/og-image.png',
+        url: '/images/logo.png',
         width: 1200,
         height: 630,
         alt: `${COMPANY_CONFIG.name} - ${COMPANY_CONFIG.seo.title}`,
@@ -57,16 +67,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@empartners',
     title: `${COMPANY_CONFIG.name} | ${COMPANY_CONFIG.seo.title}`,
-    description: `${COMPANY_CONFIG.business.description} ${COMPANY_CONFIG.name}와 함께하세요.`,
-    images: ['/images/og-image.png'],
+    description: COMPANY_CONFIG.seo.ogDescription,
+    images: ['/images/logo.png'],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -79,10 +92,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://empartners.co.kr',
+    canonical: '/',
   },
   category: 'business',
-  viewport: "width=device-width, initial-scale=1",
+  classification: 'Business Services',
+  referrer: 'origin-when-cross-origin',
 };
 
 export default function RootLayout({

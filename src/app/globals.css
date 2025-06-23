@@ -25,6 +25,8 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1;
   font-variant-ligatures: common-ligatures;
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
@@ -57,6 +59,197 @@ html {
   /* 한글 텍스트 최적화 */
   word-break: keep-all;
   overflow-wrap: break-word;
+  /* 스크롤 성능 최적화 */
+  scroll-padding-top: 80px;
+}
+
+/* 전체 페이지 스크롤 최적화 */
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* 부드러운 스크롤링을 위한 최적화 */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* 메인 컨테이너 여백 제거 */
+main {
+  margin: 0;
+  padding: 0;
+}
+
+/* 일반적인 스크롤 컨테이너 */
+.scroll-container {
+  scroll-snap-type: none;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  height: 100vh;
+  scroll-padding: 0;
+}
+
+.scroll-section {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+}
+
+/* 데스크톱에서 더 부드러운 스크롤 */
+@media (min-width: 769px) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-section {
+    scroll-snap-align: none;
+    scroll-margin-top: 0;
+  }
+  
+  /* 스크롤 스냅 비활성화 */
+  body {
+    scroll-snap-type: none;
+  }
+}
+
+/* 스크롤 배너는 스냅에서 제외 */
+.scroll-section-banner {
+  scroll-snap-align: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* 마지막 섹션 스타일 */
+.final-section {
+  scroll-snap-align: none;
+  min-height: auto !important;
+}
+
+@media (min-width: 769px) {
+  .final-section {
+    scroll-snap-align: none;
+    scroll-margin-bottom: 0;
+  }
+}
+
+/* 모바일에서는 스크롤 스냅 비활성화하고 자연스러운 스크롤 */
+@media (max-width: 768px) {
+  .scroll-container {
+    scroll-snap-type: none;
+  }
+  
+  .scroll-section {
+    scroll-snap-align: none;
+    transition: transform 0.4s ease-out;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 부드러운 스크롤 애니메이션 */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-section {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* 스크롤 인디케이터 */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4081ed, #2d5ce8);
+  transform-origin: left;
+  z-index: 9999;
+  transition: transform 0.3s ease-out;
+}
+
+/* 고급 스크롤 효과 */
+.parallax-section {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.parallax-element {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 스크롤 성능 최적화 */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 부드러운 스크롤 트랜지션 - 개선된 버전 */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-section {
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity;
+  }
+  
+  .parallax-element {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+  }
+  
+  /* 스크롤 시 부드러운 페이드 효과 */
+  .scroll-section:not(.in-view) {
+    opacity: 0.95;
+    transform: translateY(20px);
+  }
+  
+  .scroll-section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 접근성을 위한 애니메이션 비활성화 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .scroll-section,
+  .parallax-element {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* 스크롤바 스타일링 향상 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4081ed, #2d5ce8);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2d5ce8, #1e40af);
 }
 
 /* 카드 호버 효과 */

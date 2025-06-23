@@ -111,7 +111,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden parallax-element">
       {/* 배경 영상 - 전체 화면 */}
       <div className="absolute inset-0 w-full h-full">
         <video

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, ChevronUp, Instagram, ExternalLink } from 'lucide-react';
+import { MessageCircle, ChevronUp, Instagram, ExternalLink, MessageSquare } from 'lucide-react';
 import { useIsClient } from '@/hooks/useIsClient';
 
 const FloatingConsultButton = () => {
@@ -45,6 +45,10 @@ const FloatingConsultButton = () => {
   const handleBlogClick = () => {
     
     window.open('https://blog.naver.com/empartners', '_blank');
+  };
+
+  const handleKakaoClick = () => {
+    window.open('https://pf.kakao.com/_xokkxkG', '_blank');
   };
 
   return (
@@ -95,6 +99,22 @@ const FloatingConsultButton = () => {
               {/* 툴팁 */}
               <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 무료 상담 신청
+                <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+              </div>
+            </motion.button>
+
+            {/* 카카오톡 상담 버튼 */}
+            <motion.button
+              onClick={handleKakaoClick}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-800 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              <MessageSquare size={24} />
+              
+              {/* 툴팁 */}
+              <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                카카오톡 상담
                 <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
               </div>
             </motion.button>

@@ -14,15 +14,14 @@ interface FinalCTASectionProps {
 const FinalCTASection: React.FC<FinalCTASectionProps> = ({
   title = "지금 바로 시작하세요",
   subtitle = "EM파트너스와 함께 정책자금 확보의 첫 걸음을 내딛어보세요.\n전문 컨설턴트가 맞춤형 솔루션을 제공합니다.",
-  buttonText = "무료 상담 신청",
+  buttonText = "EM파트너스 자금 진단받기",
   onButtonClick
 }) => {
   const handleButtonClick = () => {
     if (onButtonClick) {
       onButtonClick();
     } else {
-      // 기본 동작: 상담 모달 열기 또는 연락처 페이지로 이동
-      window.location.href = '/contact';
+      window.open('https://empartners.co.kr/slide', '_blank');
     }
   };
 
@@ -88,7 +87,7 @@ const FinalCTASection: React.FC<FinalCTASectionProps> = ({
               enablePulse={true}
               enableShimmer={true}
               enableTextScale={true}
-              className="bg-blue-500 hover:bg-blue-400 border-2 border-blue-400 text-lg font-semibold px-8 py-4"
+              className="bg-blue-500 hover:bg-blue-400 border-2 border-blue-400 text-lg font-semibold px-8 py-4 animate-pulse hover:animate-none shadow-lg shadow-blue-500/50"
               onClick={handleButtonClick}
             >
               {buttonText}

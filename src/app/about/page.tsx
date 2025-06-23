@@ -242,7 +242,7 @@ const AboutPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="text-[#4081ed]">EM파트너스</span>
+                <span className="text-blue-600">EM파트너스</span>
               </motion.h1>
               <motion.p 
                 className="text-xl md:text-2xl lg:text-3xl text-white font-medium leading-relaxed drop-shadow-md"
@@ -251,7 +251,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 중소기업 성장의 든든한 파트너,<br />
-                <span className="text-blue-100 font-bold">정책자금 전문 컨설팅 기업</span>
+                <span className="text-white font-bold">정책자금 전문 컨설팅 기업</span>
               </motion.p>
             </div>
           </motion.div>
@@ -748,14 +748,13 @@ const AboutPage = () => {
               <span className="font-bold text-gray-900 text-sm md:text-base">부산시 남구 수영로 312 센츄리시티 1515호</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-5 h-5 text-blue-600 flex-shrink-0" />
-              <span className="font-bold text-gray-900 text-sm md:text-base">1688-7510</span>
-            </div>
-            <div className="flex items-center gap-2">
               <Navigation className="w-5 h-5 text-blue-600 flex-shrink-0" />
               <span className="font-bold text-gray-900 text-sm md:text-base">경성대-부경대역 3번출구 도보 5분</span>
             </div>
-
+            <div className="flex items-center gap-2">
+              <Phone className="w-5 h-5 text-blue-600 flex-shrink-0" />
+              <span className="font-bold text-gray-900 text-sm md:text-base">1688-7510</span>
+            </div>
           </div>
         </div>
                       

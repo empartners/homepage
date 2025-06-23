@@ -53,7 +53,7 @@ const ProblemSection = () => {
 
   return (
     <>
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-0 overflow-hidden parallax-element" style={{ minHeight: 'auto', paddingTop: '0', paddingBottom: '0' }}>
         {/* 배경 그라데이션 */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
         
@@ -195,9 +195,9 @@ const ProblemSection = () => {
           className="absolute top-1/2 right-20 w-16 h-16 bg-green-400/20 rounded-full blur-xl"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           {/* 메인 컨텐츠 - 좌우 분할 레이아웃 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full py-12 md:py-16">
             
             {/* 왼쪽 헤드라인 섹션 */}
             <motion.div
