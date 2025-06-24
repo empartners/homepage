@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Noto_Sans_KR } from "next/font/google";
 import Navigation from "@/components/common/Navigation";
 import Footer from "@/components/common/Footer";
 import FloatingConsultButton from "@/components/common/FloatingConsultButton";
+import KakaoInAppFix from "@/components/common/KakaoInAppFix";
 import { COMPANY_CONFIG } from "@/config/company";
 import "./globals.css";
 
@@ -186,6 +187,41 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         
+        {/* 카카오톡 인앱 브라우저 최적화 */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="format-detection" content="telephone=no" />
+        
+        {/* 카카오톡 인앱 브라우저 CSS 수정 */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* 카카오톡 인앱 브라우저 대응 */
+            @supports (-webkit-touch-callout: none) {
+              .kakao-inapp-fix {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+              }
+            }
+            
+            /* 카카오톡 인앱 브라우저 감지 및 수정 */
+            @media screen and (max-width: 768px) {
+              body {
+                position: relative;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+              }
+              
+              html {
+                height: -webkit-fill-available;
+              }
+              
+              /* 카카오톡 인앱 브라우저에서 상단 여백 추가 */
+              .main-content {
+                padding-top: max(env(safe-area-inset-top), 20px);
+              }
+            }
+          `
+        }} />
+        
         {/* 네이버 검색 최적화를 위한 JSON-LD 구조화 데이터 */}
         <script
           type="application/ld+json"
@@ -225,10 +261,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSansKR.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoSansKR.variable} antialiased kakao-inapp-fix`}
       >
+        <KakaoInAppFix />
         <Navigation />
-        <main className="pt-16 lg:pt-20">
+        <main className="pt-16 lg:pt-20 main-content">
           {children}
         </main>
         <Footer />
