@@ -32,8 +32,7 @@ const KakaoInAppFix = () => {
           position: fixed !important;
           top: 0 !important;
           z-index: 9999 !important;
-          background: rgba(255, 255, 255, 0.95) !important;
-          backdrop-filter: blur(10px) !important;
+          width: 100% !important;
         }
         
         /* 플로팅 버튼 위치 조정 */

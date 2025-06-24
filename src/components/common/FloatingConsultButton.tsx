@@ -45,7 +45,7 @@ const FloatingConsultButton = () => {
 
   const handleBlogClick = () => {
     
-    window.open('https://blog.naver.com/empartners', '_blank');
+    window.open('https://blog.naver.com/empareners', '_blank');
   };
 
   const handleKakaoClick = () => {
