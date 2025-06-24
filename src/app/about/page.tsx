@@ -221,7 +221,7 @@ const AboutPage = () => {
     <div className="min-h-screen">
           {/* Hero 섹션 */}
           <motion.div 
-            className="relative text-center py-16 lg:py-20 overflow-hidden"
+            className="relative text-center py-20 lg:py-32 overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

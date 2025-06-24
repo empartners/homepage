@@ -961,7 +961,7 @@ const FundContent = () => {
     <>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white w-full">
         {/* Hero Section - Success 페이지 스타일 */}
-        <div className="relative py-16 lg:py-24">
+        <div className="relative py-20 lg:py-32">
           {/* 배경 이미지 */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"

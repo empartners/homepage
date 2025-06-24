@@ -10,8 +10,8 @@ export const COMPANY_CONFIG = {
   business: {
     type: "정책자금 전문 컨설팅",
     description: "정책자금 신청부터 승인까지 원스톱 관리. 1:1 맞춤 컨설팅으로 높은 승인률을 자랑하는",
-    experience: "12년간",
-    approvalRate: "89%",
+    experience: "수년간",
+    approvalRate: "95%",
     heroApprovalRate: "95%",
     establishedYear: "2024년 7월",
     employees: "2명"
@@ -40,11 +40,11 @@ export const COMPANY_CONFIG = {
   
   // SEO 정보
   seo: {
-    title: "정책자금 전문 컨설팅 | 95% 승인률 보장",
+    title: "정책자금 전문 컨설팅 | 사업성공응원단",
     keywords: "정책자금, 정책자금 컨설팅, 정부지원사업, 기업지원, 정책자금 신청, 중소기업 지원, 창업지원, 정책자금 승인률, 사업자금, 정부보조금, 기업대출, 정책자금 전문가, 정책자금 대행, 정책자금 서류, 정책자금 조건",
-    domain: "empartners.co.kr",
-    description: "12년 경력의 정책자금 전문가가 1:1 맞춤 컨설팅으로 95% 승인률을 보장합니다. 신청부터 승인까지 원스톱 서비스로 빠르고 확실하게 정책자금을 확보하세요.",
-    ogDescription: "정책자금 신청이 어려우신가요? EM파트너스의 12년 노하우로 95% 승인률을 경험하세요. 무료 상담부터 승인까지 전 과정을 책임집니다."
+    domain: "success.empartners.co.kr",
+    description: "신청부터 승인까지 원스톱 서비스로 빠르고 확실하게 정책자금을 확보하세요.",
+    ogDescription: "정책자금 신청이 어려우신가요? EM파트너스의 컨설팅 노하우로 95% 승인률을 경험하세요. AI 자금진단부터 승인까지 전 과정을 책임집니다."
   }
 };
 
