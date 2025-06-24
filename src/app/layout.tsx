@@ -40,13 +40,22 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/emfavi.ico', sizes: '16x16', type: 'image/x-icon' },
-      { url: '/images/emfavi.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    shortcut: '/images/emfavi.ico',
+    shortcut: '/favicon.ico',
     apple: [
-      { url: '/images/emfavi.ico', sizes: '180x180', type: 'image/x-icon' },
+      { url: '/apple-icon-180x180.png', sizes: '180x180', type: 'image/png' },
     ],
+    other: [
+      {
+        rel: 'android-chrome',
+        url: '/android-icon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png'
+      }
+    ]
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -54,23 +63,37 @@ export const metadata: Metadata = {
     description: COMPANY_CONFIG.seo.ogDescription,
     type: "website",
     locale: "ko_KR",
-    url: '/',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://empartners.co.kr',
     siteName: COMPANY_CONFIG.name,
     images: [
       {
-        url: '/images/logo.png',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: `${COMPANY_CONFIG.name} - ${COMPANY_CONFIG.seo.title}`,
+        type: 'image/png',
+      },
+      {
+        url: '/images/logo-180-trans.png',
+        width: 180,
+        height: 180,
+        alt: `${COMPANY_CONFIG.name} 로고`,
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@empartners',
+    creator: '@empartners',
     title: `${COMPANY_CONFIG.name} | ${COMPANY_CONFIG.seo.title}`,
     description: COMPANY_CONFIG.seo.ogDescription,
-    images: ['/images/logo.png'],
+    images: {
+      url: '/images/og-image.png',
+      alt: `${COMPANY_CONFIG.name} - ${COMPANY_CONFIG.seo.title}`,
+      width: 1200,
+      height: 630,
+    },
   },
   robots: {
     index: true,
@@ -92,7 +115,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: '/',
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://empartners.co.kr',
   },
   category: 'business',
   classification: 'Business Services',

@@ -119,15 +119,20 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          preload="metadata"
+          poster="/images/video-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover md:object-cover object-[center_30%]"
           style={{ filter: 'brightness(0.7)' }}
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
+          onError={(e) => console.error('Video error:', e)}
         >
-          <source src="/videos/3209211-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          <source src="/videos/3209211-optimized.mp4" type="video/mp4" />
           {/* 영상이 로드되지 않을 경우 이미지 fallback */}
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat md:bg-center bg-[center_30%]"
             style={{
-              backgroundImage: `url('/images/main-bg-001.jpg')`
+              backgroundImage: `url('/images/video-poster.jpg')`
             }}
           />
         </video>
