@@ -8,6 +8,7 @@ import { Menu, X, Phone, MessageCircle, Instagram, ExternalLink, Home } from 'lu
 import { COMPANY_CONFIG } from '@/config/company';
 import { useIsClient } from '@/hooks/useIsClient';
 import AnimatedButton from '@/components/common/AnimatedButton';
+import Image from 'next/image';
 
 // 메뉴 아이템 컴포넌트 메모이제이션
 const MenuItem = memo(({ item, isActive, onClick }: {
@@ -247,28 +248,26 @@ const Navigation = memo(() => {
               <Link href="/" className="flex items-center flex-shrink-0 will-change-transform">
                 <div className="relative">
                   {/* 모바일용 로고 */}
-                  <img 
+                  <Image
                     src="/images/logo-only.png" 
                     alt="EM파트너스 로고"
+                    width={80}
+                    height={80}
                     className="w-20 h-20 sm:w-24 sm:h-24 lg:hidden object-contain transition-transform duration-200 hover:scale-105"
-                    onError={(e) => {
-                      // 이미지 로드 실패 시 fallback
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.nextElementSibling!.classList.remove('hidden');
-                    }}
+                    priority={true}
+                    quality={90}
+                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 80px"
                   />
                   {/* 데스크톱용 로고 */}
-                  <img 
+                  <Image
                     src="/images/logo.png" 
                     alt="EM파트너스 로고"
+                    width={112}
+                    height={112}
                     className="hidden lg:block w-28 lg:h-28 object-contain transition-transform duration-200 hover:scale-105"
-                    onError={(e) => {
-                      // 이미지 로드 실패 시 fallback
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.nextElementSibling!.classList.remove('hidden');
-                    }}
+                    priority={true}
+                    quality={90}
+                    sizes="112px"
                   />
                   {/* Fallback 로고 */}
                   <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-r from-white to-blue-100 rounded-lg flex items-center justify-center hidden">

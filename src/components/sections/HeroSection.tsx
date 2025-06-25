@@ -114,7 +114,7 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/images/video-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover md:object-cover object-[center_30%]"
           style={{ filter: 'brightness(0.7)' }}

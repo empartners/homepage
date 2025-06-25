@@ -149,6 +149,9 @@ const ProblemSection = () => {
             width={200}
             height={200}
             className="w-60 h-60 object-contain"
+            priority={false}
+            loading="lazy"
+            quality={75}
           />
         </motion.div>
 
