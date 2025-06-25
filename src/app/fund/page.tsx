@@ -21,8 +21,8 @@ const FundContent = () => {
           <DynamicBackground>
             <div className="px-6 md:px-8 lg:px-10">
                         <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-white mb-4">정책자금이란?</h2>
-            <p className="text-lg text-gray-200 max-w-4xl mx-auto mb-8">
+                <h2 className="text-xl md:text-3xl font-bold text-white mb-4">정책자금이란?</h2>
+            <p className="text-sm md:text-lg text-gray-200 max-w-4xl mx-auto mb-8">
             정책자금이란 정부(중소벤처기업부, 중진공, 기술보증기금 등)가 소상공인 및 중소기업을 대상으로
                   저리 또는 무담보 대출의 형태로 지원하는 공공 목적의 자금입니다. 
                   민간 금융기관에서 자금 조달이 어려운 기업에게 성장 기반을 마련할 수 있도록 돕는 역할을 합니다.
@@ -46,7 +46,7 @@ const FundContent = () => {
             
             {/* 정책자금 목적 */}
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-xl font-semibold text-white mb-6 text-center">정책자금의 필요성</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-6 text-center">정책자금의 필요성</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { icon: TrendingUp, text: "경영 안정화" },
@@ -58,8 +58,8 @@ const FundContent = () => {
                 ].map((item, index) => (
                   <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
                     <div className="flex items-center space-x-2">
-                      <item.icon className="w-5 h-5 text-blue-200 flex-shrink-0" />
-                      <span className="text-white text-sm font-medium">{item.text}</span>
+                      <item.icon className="w-4 h-4 md:w-5 md:h-5 text-blue-200 flex-shrink-0" />
+                      <span className="text-white text-xs md:text-sm font-medium">{item.text}</span>
                   </div>
                 </div>
                 ))}
@@ -73,7 +73,7 @@ const FundContent = () => {
           {/* 자금 유형별 분류 */}
           <div className="mb-16 mt-20">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">자금 유형별 분류</h3>
+            <h3 className="text-lg md:text-2xl font-bold text-gray-900 text-center mb-8">자금 유형별 분류</h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* 운전자금 */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
@@ -85,18 +85,18 @@ const FundContent = () => {
                   />
                   {/* 제목 */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-2xl font-bold text-white drop-shadow-lg">운전자금</h4>
+                    <h4 className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">운전자금</h4>
                   </div>
                 </div>
                 
                 {/* 하단 텍스트 영역 */}
                 <div className="p-6 bg-white">
-                  <p className="text-gray-700 leading-relaxed mb-4">
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
                     일상적인 경영활동(인건비, 재료비, 임대료 등)에서 현금흐름이 부족할 때 사용하는 자금
                   </p>
                   <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                    <span className="text-sm font-semibold text-[#4081ed]">예시:</span>
-                    <span className="text-sm text-gray-700 ml-2">계절 매출 편차 대응, 임시 유동성 확보</span>
+                    <span className="text-xs md:text-sm font-semibold text-[#4081ed]">예시:</span>
+                    <span className="text-xs md:text-sm text-gray-700 ml-2">계절 매출 편차 대응, 임시 유동성 확보</span>
                   </div>
                 </div>
               </div>
@@ -111,18 +111,18 @@ const FundContent = () => {
                   />
                   {/* 제목 */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-2xl font-bold text-white drop-shadow-lg">시설자금</h4>
+                    <h4 className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">시설자금</h4>
                   </div>
                 </div>
                 
                 {/* 하단 텍스트 영역 */}
                 <div className="p-6 bg-white">
-                  <p className="text-gray-700 leading-relaxed mb-4">
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
                     공장, 사무실, 설비, 장비 등을 신규 구축하거나 확장할 때 사용하는 자금
                   </p>
                   <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                    <span className="text-sm font-semibold text-[#4081ed]">특징:</span>
-                    <span className="text-sm text-gray-700 ml-2">장기 상환 구조(3~10년), 대규모 투자 유도</span>
+                    <span className="text-xs md:text-sm font-semibold text-[#4081ed]">특징:</span>
+                    <span className="text-xs md:text-sm text-gray-700 ml-2">장기 상환 구조(3~10년), 대규모 투자 유도</span>
                   </div>
                 </div>
               </div>
@@ -137,18 +137,18 @@ const FundContent = () => {
                   />
                   {/* 제목 */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-2xl font-bold text-white drop-shadow-lg">특화자금</h4>
+                    <h4 className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">특화자금</h4>
                   </div>
                 </div>
                 
                 {/* 하단 텍스트 영역 */}
                 <div className="p-6 bg-white">
-                  <p className="text-gray-700 leading-relaxed mb-4">
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
                     여성, 청년, 장애인, 재창업자 등 특정 대상자에 대한 우대 정책자금
                   </p>
                   <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                    <span className="text-sm font-semibold text-[#4081ed]">대상:</span>
-                    <span className="text-sm text-gray-700 ml-2">창업초기자금, 청년창업사관학교 연계 등</span>
+                    <span className="text-xs md:text-sm font-semibold text-[#4081ed]">대상:</span>
+                    <span className="text-xs md:text-sm text-gray-700 ml-2">창업초기자금, 청년창업사관학교 연계 등</span>
                   </div>
                   </div>
                 </div>
@@ -160,9 +160,9 @@ const FundContent = () => {
           {/* 정책자금 진행 순서 */}
           <div className="mb-16 bg-gradient-to-br from-slate-50 to-blue-50 py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">정책자금 진행 순서</h3>
-              <p className="text-lg text-gray-600 text-center mb-12">
-                EM파트너스가 제공하는 체계적인 정책자금 신청 프로세스
+              <h3 className="text-lg md:text-2xl font-bold text-gray-900 text-center mb-8">정책자금 진행 순서</h3>
+              <p className="text-sm md:text-lg text-gray-600 text-center mb-12">
+                EM파트너스가 제공하는<br />체계적인 정책자금 신청 프로세스
               </p>
             
             <div className="relative">
@@ -219,14 +219,14 @@ const FundContent = () => {
                       desc: "자금 실행 후에도 지속적인 사후관리를 통해 상환 계획 수립, 추가 자금 필요 시 컨설팅 등 장기적인 파트너십을 유지합니다."
                     }
                   ].map((step, index) => (
-                    <div key={index} className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+                    <div key={index} className="bg-gradient-to-r from-blue-50 to-blue-100/50 rounded-lg p-4 shadow-md border border-blue-200/50 hover:shadow-lg transition-all duration-300">
                       <div className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
                           <span className="text-xs font-bold text-white">{String(index + 1).padStart(2, '0')}</span>
                   </div>
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2 text-sm">{step.title}</h4>
-                          <p className="text-xs text-gray-600 leading-relaxed">{step.desc}</p>
+                          <h4 className="font-semibold text-blue-900 mb-2 text-xs md:text-sm">{step.title}</h4>
+                          <p className="text-xs text-blue-800/80 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               </div>

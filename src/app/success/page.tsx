@@ -342,92 +342,96 @@ const SuccessContent = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 25 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+              className="bg-white rounded-2xl shadow-2xl max-w-sm md:max-w-2xl w-full max-h-[80vh] md:max-h-[85vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* 모달 헤더 */}
-              <div className="relative p-4 md:p-6 bg-[#4081ed] text-white rounded-t-2xl">
+              <div className="relative p-3 md:p-6 bg-[#4081ed] text-white rounded-t-2xl">
                 <button
                   onClick={closeModal}
-                  className="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-8 md:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors z-10"
+                  className="absolute top-2 right-2 md:top-4 md:right-4 w-6 h-6 md:w-8 md:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors z-10"
                 >
-                  <X className="w-4 h-4 md:w-5 md:h-5" />
+                  <X className="w-3 h-3 md:w-5 md:h-5" />
                 </button>
                 
                 {/* 회사 정보 */}
                 <div className="flex items-center space-x-2 md:space-x-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
-                    <selectedCase.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                    <selectedCase.icon className="w-4 h-4 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-lg md:text-xl font-bold">{selectedCase.company}</h2>
+                    <h2 className="text-sm md:text-xl font-bold">{selectedCase.company}</h2>
                     <p className="text-blue-100 text-xs md:text-sm">{selectedCase.industry}</p>
                   </div>
                 </div>
               </div>
               
               {/* 모달 내용 */}
-              <div className="p-4 md:p-6 space-y-4 md:space-y-5">
+              <div className="p-3 md:p-6 space-y-3 md:space-y-5">
                 {/* 핵심 정보 */}
-                <div className="bg-blue-50 rounded-xl p-3 md:p-4 border border-blue-100">
-                  <div className="grid grid-cols-2 gap-3 md:gap-4">
-                    <div className="text-center">
-                      <div className="text-xl md:text-2xl font-bold text-[#4081ed] mb-1">{selectedCase.amount}</div>
-                      <div className="text-gray-600 text-xs md:text-sm">지원금액</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-base md:text-lg font-semibold text-gray-800 mb-1 flex items-center justify-center">
-                        <Clock className="w-3 h-3 md:w-4 md:h-4 mr-1 text-[#4081ed]" />
-                        {selectedCase.period}
-                      </div>
-                      <div className="text-gray-600 text-xs md:text-sm">소요기간</div>
+                <div className="bg-blue-50 rounded-xl p-2 md:p-4 border border-blue-100">
+                  {/* 모바일: 한 줄로 표시 */}
+                  <div className="md:hidden text-center">
+                    <div className="bg-white/70 rounded-lg px-3 py-2 text-sm leading-relaxed">
+                      <span className="text-[#4081ed] font-semibold">{selectedCase.program}</span>
+                      <span className="text-gray-500 mx-1">|</span>
+                      <span className="text-gray-900 font-bold">{selectedCase.amount}</span>
+                      <span className="text-gray-500 mx-1">|</span>
+                      <span className="text-gray-600">약 {selectedCase.period} 소요</span>
                     </div>
                   </div>
-                  <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-blue-200">
-                    <div className="text-gray-600 text-xs md:text-sm mb-1">지원 프로그램</div>
-                    <div className="text-gray-800 text-sm md:text-base font-medium">{selectedCase.program}</div>
+                  
+                  {/* 데스크톱: 모바일과 동일한 한 줄 스타일 */}
+                  <div className="hidden md:block text-center">
+                    <div className="bg-white/70 rounded-lg px-4 py-3 text-base leading-relaxed">
+                      <span className="text-[#4081ed] font-semibold">{selectedCase.program}</span>
+                      <span className="text-gray-500 mx-2">|</span>
+                      <span className="text-gray-900 font-bold">{selectedCase.amount}</span>
+                      <span className="text-gray-500 mx-2">|</span>
+                      <span className="text-gray-600">약 {selectedCase.period} 소요</span>
+                    </div>
                   </div>
                 </div>
                 
                 {/* 지원 내용 */}
                 <div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
-                      <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                  <h3 className="text-sm md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+                    <div className="w-4 h-4 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
+                      <TrendingUp className="w-2 h-2 md:w-4 md:h-4 text-white" />
                     </div>
                     지원 내용
                   </h3>
-                  <div className="bg-gray-50 rounded-xl p-3 md:p-4 border border-gray-200">
-                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">{selectedCase.description}</p>
+                  <div className="bg-gray-50 rounded-xl p-2 md:p-4 border border-gray-200">
+                    <p className="text-gray-700 text-xs md:text-base leading-relaxed">{selectedCase.description}</p>
                   </div>
                 </div>
                 
                 {/* 주요 성과 */}
                 <div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
-                      <Award className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                  <h3 className="text-sm md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+                    <div className="w-4 h-4 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
+                      <Award className="w-2 h-2 md:w-4 md:h-4 text-white" />
                     </div>
                     주요 성과
                   </h3>
-                  <div className="bg-blue-50 rounded-xl p-3 md:p-4 border border-blue-200">
+                  <div className="bg-blue-50 rounded-xl p-2 md:p-4 border border-blue-200">
                     <div className="flex items-start space-x-2 md:space-x-3">
-                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#4081ed] mt-0.5 flex-shrink-0" />
-                      <p className="text-gray-700 text-sm md:text-base font-medium leading-relaxed">{selectedCase.achievement}</p>
+                      <CheckCircle className="w-3 h-3 md:w-5 md:h-5 text-[#4081ed] mt-0.5 flex-shrink-0" />
+                      <p className="text-gray-700 text-xs md:text-base font-medium leading-relaxed">{selectedCase.achievement}</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* 고객 후기 */}
                 <div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
-                    <div className="w-5 h-5 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
-                      <Quote className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                  <h3 className="text-sm md:text-lg font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+                    <div className="w-4 h-4 md:w-6 md:h-6 bg-[#4081ed] rounded-lg flex items-center justify-center mr-2">
+                      <Quote className="w-2 h-2 md:w-4 md:h-4 text-white" />
                     </div>
                     고객 한마디
                   </h3>
-                  <div className="bg-blue-50 rounded-xl p-3 md:p-4 border border-blue-200">
-                    <blockquote className="text-gray-700 text-sm md:text-base italic leading-relaxed mb-2">
+                  <div className="bg-blue-50 rounded-xl p-2 md:p-4 border border-blue-200">
+                    <blockquote className="text-gray-700 text-xs md:text-base italic leading-relaxed mb-2">
                       "{selectedCase.testimonial}"
                     </blockquote>
                     <div className="text-[#4081ed] text-xs md:text-sm font-medium text-right">

@@ -161,16 +161,16 @@ const SupportContent = () => {
                     <span className="bg-green-500/20 px-2 py-1 rounded-full text-xs font-medium text-green-200">
                       {item.status}
                       </span>
-                  </div>
+                    </div>
                   <h4 className="font-bold text-white text-sm mb-2">{item.title}</h4>
                   <p className="text-xs text-gray-300 mb-2">{item.agency}</p>
                   <p className="text-xs text-gray-400">{item.description}</p>
                   </div>
                 ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
     ),
     local: (
         <div className="space-y-8">

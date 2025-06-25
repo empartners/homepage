@@ -319,8 +319,8 @@ const Footer = () => {
 
               {/* 사이트맵 - 수평 나열 */}
               <div>
-                <h3 className="text-lg font-semibold mb-3">사이트맵</h3>
-                <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                <h3 className="text-sm md:text-lg font-semibold mb-3">사이트맵</h3>
+                <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs md:text-sm">
                   {menuItems.map((item, index) => (
                     <React.Fragment key={item.name}>
                       <Link

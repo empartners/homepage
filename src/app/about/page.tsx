@@ -482,7 +482,7 @@ const AboutPage = () => {
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.8, delay: 2.0 }}
                     >
-                      <strong>&ldquo;정직과 신뢰를 바탕으로, 고객의 성장 없이는 우리의 성공도 없다&rdquo;</strong>
+                      <strong>&ldquo;정직과 신뢰를 바탕으로,<br />고객의 성장 없이는 우리의 성공도 없다&rdquo;</strong>
                     </motion.p>
                   </motion.div>
 
@@ -510,7 +510,7 @@ const AboutPage = () => {
         <DynamicBackground>
           <div className="px-6 md:px-8 lg:px-10">
             <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">EM파트너스·사업성공응원단이 하는 일</h2>
+              <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white mb-4">EM파트너스·사업성공응원단이 하는 일</h2>
               <div className="w-16 h-1 bg-blue-400 mx-auto"></div>
             </div>
 

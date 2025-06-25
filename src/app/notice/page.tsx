@@ -28,11 +28,11 @@ const NoticeContent = () => {
       label: '공지사항',
       content: (
         <div className="space-y-8">
-          <div className="text-center py-8">
+          <div className="text-center py-8 hidden md:block">
             <div className="flex justify-center mb-6">
               <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm border border-white/20">
                 <Bell className="w-12 h-12 text-white" />
-          </div>
+              </div>
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">공지사항</h2>
             <p className="text-gray-200 text-lg mb-8">EM파트너스의 최신 소식과 정책자금 정보를 확인하세요</p>
@@ -48,9 +48,9 @@ const NoticeContent = () => {
               <div className="bg-gray-100 px-3 md:px-6 py-3 border-b border-gray-200">
                 <div className="grid grid-cols-12 gap-2 md:gap-4 text-xs md:text-sm font-medium text-gray-700">
                   <div className="col-span-1 text-center">번호</div>
-                  <div className="col-span-6 md:col-span-7">제목</div>
-                  <div className="col-span-2 text-center">작성자</div>
-                  <div className="col-span-3 md:col-span-2 text-center">작성일</div>
+                  <div className="col-span-8 md:col-span-7">제목</div>
+                  <div className="col-span-1 md:col-span-2 text-center hidden md:block">작성자</div>
+                  <div className="col-span-2 md:col-span-2 text-center">작성일</div>
                 </div>
               </div>
               
@@ -63,7 +63,7 @@ const NoticeContent = () => {
                   >
                     <div className="grid grid-cols-12 gap-2 md:gap-4 items-center">
                       <div className="col-span-1 text-center text-xs md:text-sm text-gray-600">1</div>
-                      <div className="col-span-6 md:col-span-7">
+                      <div className="col-span-8 md:col-span-7">
                         <div className="flex items-center space-x-1 md:space-x-2">
                           <span className="bg-blue-100 text-blue-800 px-1 md:px-2 py-1 rounded text-xs font-medium">
                             중요
@@ -78,9 +78,9 @@ const NoticeContent = () => {
                           )}
                         </div>
                       </div>
-                      <div className="col-span-2 text-center text-xs md:text-sm text-gray-600">관리자</div>
-                      <div className="col-span-3 md:col-span-2 text-center text-xs md:text-sm text-gray-600">2025-06-22</div>
-              </div>
+                      <div className="col-span-1 md:col-span-2 text-center text-xs md:text-sm text-gray-600 hidden md:block">관리자</div>
+                      <div className="col-span-2 md:col-span-2 text-center text-xs md:text-sm text-gray-600">06-22</div>
+                    </div>
                   </button>
                   
                   {/* 게시글 상세 내용 (토글) */}
@@ -88,17 +88,17 @@ const NoticeContent = () => {
                     <div className="px-6 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
                       <div className="prose max-w-none">
                         <div className="mb-4">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2">정책자금 진행 절차안내</h3>
-                          <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                          <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">정책자금 진행 절차안내</h3>
+                          <div className="flex items-center space-x-4 text-xs md:text-sm text-gray-600 mb-4">
                             <span>작성자: 관리자</span>
                             <span>작성일: 2025-06-22</span>
-              </div>
-            </div>
+                          </div>
+                        </div>
                         
-                        <div className="text-gray-700 leading-relaxed">
+                        <div className="text-gray-700 leading-relaxed text-sm md:text-base">
                           <p className="mb-4">EM파트너스의 정책자금 컨설팅은 아래와 같은 절차로 진행됩니다:</p>
                           
-                          <ol className="list-decimal list-inside space-y-2 mb-4 ml-4">
+                          <ol className="list-decimal list-inside space-y-2 mb-4 ml-4 text-sm md:text-base">
                             <li>1차 상담 및 기본 조건 진단 (전화 또는 대면)</li>
                             <li>필요 서류 안내 및 수집 지원</li>
                             <li>맞춤 전략 설계 및 금융기관 매칭</li>
@@ -107,12 +107,12 @@ const NoticeContent = () => {
                           </ol>
                           
                           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
-                            <p className="text-blue-800">
+                            <p className="text-blue-800 text-sm md:text-base">
                               <strong>→ 평균 소요기간은 2주~4주입니다.</strong> 대표님 일정에 맞춰 탄력적으로 조정 가능합니다.
                             </p>
-          </div>
+                          </div>
 
-                          <p className="text-gray-700">
+                          <p className="text-gray-700 text-sm md:text-base">
                             자세한 컨설팅 및 자금 상담은 고객센터를 통해 접수 부탁드립니다.
                           </p>
                         </div>
@@ -128,7 +128,7 @@ const NoticeContent = () => {
                   >
                     <div className="grid grid-cols-12 gap-2 md:gap-4 items-center">
                       <div className="col-span-1 text-center text-xs md:text-sm text-gray-600">2</div>
-                      <div className="col-span-6 md:col-span-7">
+                      <div className="col-span-8 md:col-span-7">
                         <div className="flex items-center space-x-1 md:space-x-2">
                           <span className="bg-red-100 text-red-800 px-1 md:px-2 py-1 rounded text-xs font-medium">
                             공지
@@ -143,8 +143,8 @@ const NoticeContent = () => {
                           )}
                         </div>
                       </div>
-                      <div className="col-span-2 text-center text-xs md:text-sm text-gray-600">관리자</div>
-                      <div className="col-span-3 md:col-span-2 text-center text-xs md:text-sm text-gray-600">2025-06-20</div>
+                      <div className="col-span-1 md:col-span-2 text-center text-xs md:text-sm text-gray-600 hidden md:block">관리자</div>
+                      <div className="col-span-2 md:col-span-2 text-center text-xs md:text-sm text-gray-600">06-20</div>
                     </div>
                   </button>
                   
@@ -153,17 +153,17 @@ const NoticeContent = () => {
                     <div className="px-6 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
                       <div className="prose max-w-none">
                         <div className="mb-4">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2">📢 정책자금 신청, 승인의 첫 걸음은 타이밍 전략입니다</h3>
-                          <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                          <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">📢 정책자금 신청, 승인의 첫 걸음은 타이밍 전략입니다</h3>
+                          <div className="flex items-center space-x-4 text-xs md:text-sm text-gray-600 mb-4">
                             <span>작성자: 관리자</span>
                             <span>작성일: 2025-06-20</span>
                           </div>
                         </div>
                         
-                        <div className="text-gray-700 leading-relaxed space-y-4">
+                        <div className="text-gray-700 leading-relaxed space-y-4 text-sm md:text-base">
                           <p>정책자금 신청, 같은 조건인데 왜 승인 결과가 달랐을까? 그 해답은 바로 신청 시기입니다.</p>
                           
-                          <h4 className="font-semibold text-gray-900 mt-6 mb-3">왜 '타이밍 전략'이 중요한가요?</h4>
+                          <h4 className="font-semibold text-gray-900 mt-6 mb-3 text-sm md:text-base">왜 '타이밍 전략'이 중요한가요?</h4>
                           <p>정책자금은 예산 잔액과 시기별 상황에 따라 심사 기준과 승인률이 달라집니다.</p>
                           
                           <p><strong>연초~상반기:</strong> 예산 여유로 담당자 검토가 수월하며, 승인률이 평균 78% 이상을 기록합니다.</p>
@@ -171,27 +171,27 @@ const NoticeContent = () => {
                           
                           <p className="font-medium">"같은 조건인데, 왜 승인 결과가 다를까요?" 바로 신청 타이밍이 갈랐습니다.</p>
                           
-                          <h4 className="font-semibold text-gray-900 mt-6 mb-3">최적 신청 시기 & 실전 스케줄</h4>
+                          <h4 className="font-semibold text-gray-900 mt-6 mb-3 text-sm md:text-base">최적 신청 시기 & 실전 스케줄</h4>
                           
                           <p><strong>1~2월: 예산 잔액 파악</strong></p>
-                          <ul className="list-disc list-inside ml-4 space-y-1">
+                          <ul className="list-disc list-inside ml-4 space-y-1 text-sm md:text-base">
                             <li>전년도 잔여 예산 확인</li>
                             <li>업종별 가점 조건 체크</li>
                           </ul>
                           
                           <p><strong>3~4월: 사업계획서 집중 보완</strong></p>
-                          <ul className="list-disc list-inside ml-4 space-y-1">
+                          <ul className="list-disc list-inside ml-4 space-y-1 text-sm md:text-base">
                             <li>시장 분석 → 수익 모델 → 성장 전략 순서 구성</li>
                             <li>구체적 목표(예: "5년 내 매출 50% 성장") 명시</li>
                           </ul>
                           
                           <p><strong>5~6월: 서류 최종 검토</strong></p>
-                          <ul className="list-disc list-inside ml-4 space-y-1">
+                          <ul className="list-disc list-inside ml-4 space-y-1 text-sm md:text-base">
                             <li>법인등기부, 세무 신고, 대표자 신분증 등 필수 서류 완비</li>
                             <li>담당자 사전 질의·응답으로 추가 보완</li>
                           </ul>
                           
-                          <h4 className="font-semibold text-gray-900 mt-6 mb-3">서류 준비 꿀팁 3가지</h4>
+                          <h4 className="font-semibold text-gray-900 mt-6 mb-3 text-sm md:text-base">서류 준비 꿀팁 3가지</h4>
                           
                           <p><strong>1. 재무 흐름 정리</strong><br/>
                           최근 12개월 매출·매입 엑셀 차트 시각화</p>
@@ -200,28 +200,28 @@ const NoticeContent = () => {
                           투자 포인트 예시: "시장 규모 ○○억, 3년 내 ○○개 일자리 창출"</p>
                           
                           <p><strong>3. 기본 체크리스트</strong></p>
-                          <ul className="list-disc list-inside ml-4 space-y-1">
+                          <ul className="list-disc list-inside ml-4 space-y-1 text-sm md:text-base">
                             <li>등기부등본 ✔</li>
                             <li>세무신고 증빙 ✔</li>
                             <li>대표자 신분증 ✔</li>
                           </ul>
                           
-                          <h4 className="font-semibold text-gray-900 mt-6 mb-3">"나도 할 수 있다" vs. "왜 안 했나요?"</h4>
+                          <h4 className="font-semibold text-gray-900 mt-6 mb-3 text-sm md:text-base">"나도 할 수 있다" vs. "왜 안 했나요?"</h4>
                           <p>몇몇 대표님들은 "이 정도는 나도 할 수 있다"고 말씀하십니다. 하지만, 정책의 흐름과 전략을 놓치기 쉬운 게 현실입니다.</p>
                           <p className="font-medium">"그럼 왜 지금까지 실행하지 않으셨나요?"</p>
                           
-                          <ul className="list-disc list-inside ml-4 space-y-1">
+                          <ul className="list-disc list-inside ml-4 space-y-1 text-sm md:text-base">
                             <li>매달·분기별 변하는 정책 해석</li>
                             <li>작은 용어 차이로 좌우되는 심사 기준</li>
                             <li>300건 이상 축적된 전략을 통한 승인 확률 상승</li>
                           </ul>
                           
-                          <h4 className="font-semibold text-gray-900 mt-6 mb-3">결론 & 상담 안내</h4>
+                          <h4 className="font-semibold text-gray-900 mt-6 mb-3 text-sm md:text-base">결론 & 상담 안내</h4>
                           <p className="font-medium">"받을 수 있을 때, 바로 움직이는 자가 기회를 잡는다!"</p>
                        
                           
                           <p>지금 문의주시면 다음과 같은 서비스를 한 번에 지원해드립니다:</p>
-                          <ul className="list-disc list-inside ml-4 space-y-1">
+                          <ul className="list-disc list-inside ml-4 space-y-1 text-sm md:text-base">
                             <li>빠른 예산 상황 진단</li>
                             <li>맞춤 타이밍 전략 설계</li>
                             <li>신청 전 최종 서류 점검</li>
@@ -242,7 +242,7 @@ const NoticeContent = () => {
       label: '자주하는 질문',
       content: (
         <div className="space-y-8">
-          <div className="text-center py-8">
+          <div className="text-center py-8 hidden md:block">
             <div className="flex justify-center mb-6">
               <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm border border-white/20">
                 <HelpCircle className="w-12 h-12 text-white" />
@@ -253,9 +253,9 @@ const NoticeContent = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
-              <h3 className="text-xl font-semibold text-white mb-6">자주 묻는 질문들</h3>
-          <div className="space-y-4">
+            <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm border-0 md:border border-white/20 -mx-4 md:mx-0">
+              <h3 className="text-lg md:text-xl font-semibold text-white mb-6">자주 묻는 질문들</h3>
+          <div className="space-y-2 md:space-y-4">
             {[
               {
                 category: '자격요건',
@@ -280,7 +280,7 @@ const NoticeContent = () => {
               {
                 category: '신용점수',
                 question: '신용점수가 낮아도 신청할 수 있나요?',
-                answer: '네, 가능합니다. NICE 기준 신용점수 839점 이하인 경우에도 \'저신용 전용 정책자금\'으로 신청할 수 있으며, 사업성과 미래 성장 가능성을 중심으로 심사가 진행됩니다.'
+                answer: '네, 가능합니다. NICE 기준 신용점수 839점 이하인경우에도 \'저신용 전용 정책자금\'으로 신청할 수 있으며, 사업성과 미래 성장 가능성을 중심으로 심사가 진행됩니다.'
               },
               {
                 category: '보증서발급',
@@ -303,26 +303,26 @@ const NoticeContent = () => {
                 answer: '사업 유형과 시기에 따라 다릅니다. 무료 사전 진단을 통해 정확히 안내드리니, 언제든 부담 없이 문의 주세요.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div key={index} className="bg-white rounded-lg border-0 md:border border-gray-200 overflow-hidden">
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full px-4 md:px-6 py-3 md:py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-blue-600 text-sm font-medium px-2 py-1 bg-blue-50 rounded">
+                  <div className="flex items-center space-x-2 md:space-x-3">
+                    <span className="text-blue-600 text-xs md:text-sm font-medium px-2 py-1 bg-blue-50 rounded">
                       {faq.category}
                     </span>
-                    <span className="text-gray-900 font-medium">{faq.question}</span>
+                    <span className="text-gray-900 font-medium text-sm md:text-base">{faq.question}</span>
                   </div>
                   {openFaqIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500" />
+                    <ChevronUp className="w-4 md:w-5 h-4 md:h-5 text-gray-500 flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                    <ChevronDown className="w-4 md:w-5 h-4 md:h-5 text-gray-500 flex-shrink-0" />
                   )}
                 </button>
                 {openFaqIndex === index && (
-                  <div className="px-6 pb-4 border-t border-gray-100">
-                    <p className="text-gray-600 leading-relaxed pt-4">{faq.answer}</p>
+                  <div className="px-4 md:px-6 pb-3 md:pb-4 border-t border-gray-100">
+                    <p className="text-gray-600 leading-relaxed pt-3 md:pt-4 text-sm md:text-base">{faq.answer}</p>
                   </div>
                 )}
               </div>

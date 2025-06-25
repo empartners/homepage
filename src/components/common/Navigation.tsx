@@ -241,27 +241,42 @@ const Navigation = memo(() => {
         style={{ transform: 'translateZ(0)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 lg:h-20">
-            {/* 로고 */}
-            <Link href="/" className="flex items-center flex-shrink-0 will-change-transform">
-              <div className="relative">
-                <img 
-                  src="/images/logo.png" 
-                  alt="EM파트너스 로고"
-                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain transition-transform duration-200 hover:scale-105"
-                  onError={(e) => {
-                    // 이미지 로드 실패 시 fallback
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.nextElementSibling!.classList.remove('hidden');
-                  }}
-                />
-                {/* Fallback 로고 */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-r from-white to-blue-100 rounded-lg flex items-center justify-center hidden">
-                  <span className="text-[#4081ed] font-bold text-3xl sm:text-4xl">{COMPANY_CONFIG.logoText}</span>
+          <div className="flex justify-between lg:justify-between items-center h-16 lg:h-20 relative">
+            {/* 로고 - 모바일과 데스크톱 모두 왼쪽 정렬 */}
+            <div className="flex items-center flex-shrink-0">
+              <Link href="/" className="flex items-center flex-shrink-0 will-change-transform">
+                <div className="relative">
+                  {/* 모바일용 로고 */}
+                  <img 
+                    src="/images/logo-only.png" 
+                    alt="EM파트너스 로고"
+                    className="w-20 h-20 sm:w-24 sm:h-24 lg:hidden object-contain transition-transform duration-200 hover:scale-105"
+                    onError={(e) => {
+                      // 이미지 로드 실패 시 fallback
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.nextElementSibling!.classList.remove('hidden');
+                    }}
+                  />
+                  {/* 데스크톱용 로고 */}
+                  <img 
+                    src="/images/logo.png" 
+                    alt="EM파트너스 로고"
+                    className="hidden lg:block w-28 lg:h-28 object-contain transition-transform duration-200 hover:scale-105"
+                    onError={(e) => {
+                      // 이미지 로드 실패 시 fallback
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.nextElementSibling!.classList.remove('hidden');
+                    }}
+                  />
+                  {/* Fallback 로고 */}
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-r from-white to-blue-100 rounded-lg flex items-center justify-center hidden">
+                    <span className="text-[#4081ed] font-bold text-3xl sm:text-4xl">{COMPANY_CONFIG.logoText}</span>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
 
             {/* 데스크톱 메뉴 */}
             <div className="hidden lg:flex items-center space-x-1">
@@ -317,7 +332,7 @@ const Navigation = memo(() => {
             {/* 모바일 메뉴 버튼 */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden p-2 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-all duration-150 will-change-transform"
+              className="lg:hidden p-2 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-all duration-150 will-change-transform z-10"
               aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
               style={{ transform: 'translateZ(0)' }}
             >

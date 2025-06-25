@@ -45,11 +45,44 @@ const KakaoInAppFix = () => {
         .kakao-inapp-browser .hero-section {
           min-height: calc(100vh - 80px) !important;
           padding-top: 40px !important;
+          padding-bottom: 100px !important;
         }
         
         /* 비디오 컨테이너 조정 */
         .kakao-inapp-browser video {
           object-position: center !important;
+        }
+        
+        /* 스크롤 인디케이터와 버튼 겹침 방지 */
+        .kakao-inapp-browser .scroll-indicator {
+          bottom: 120px !important;
+          z-index: 10 !important;
+        }
+        
+        /* Hero 섹션 내 "스크롤하여 더 보기" 위치 조정 */
+        .kakao-inapp-browser .absolute.bottom-50,
+        .kakao-inapp-browser .absolute.bottom-8 {
+          bottom: 120px !important;
+        }
+        
+        /* Hero 섹션 내 CTA 버튼들 위치 조정 */
+        .kakao-inapp-browser .hero-section .relative {
+          margin-bottom: 80px !important;
+        }
+        
+        /* 메인 컨테이너에 하단 여백 추가 */
+        .kakao-inapp-browser main > div:first-child {
+          padding-bottom: 100px !important;
+        }
+        
+        /* 스크롤 다운 애니메이션 일반적인 위치 조정 */
+        .kakao-inapp-browser [class*="bottom-"]:not(.fixed) {
+          bottom: 120px !important;
+        }
+        
+        /* Hero 섹션의 모든 하단 요소들 조정 */
+        .kakao-inapp-browser section:first-child .absolute[class*="bottom"] {
+          bottom: 120px !important;
         }
       `;
       

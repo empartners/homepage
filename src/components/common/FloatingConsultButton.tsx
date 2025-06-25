@@ -71,7 +71,7 @@ const FloatingConsultButton = () => {
               onClick={handleConsultationClick}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="relative bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] text-white w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group flex items-center justify-center"
+              className="relative bg-gradient-to-r from-[#4081ed] to-[#2d5ce8] text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group flex items-center justify-center"
             >
               <motion.div
                 animate={{ 
@@ -84,7 +84,7 @@ const FloatingConsultButton = () => {
                   ease: "easeInOut" 
                 }}
               >
-                <MessageCircle size={32} />
+                <MessageCircle size={20} />
               </motion.div>
               
               {/* 펄스 효과 */}
@@ -113,9 +113,9 @@ const FloatingConsultButton = () => {
               onClick={handlePhoneClick}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-green-500 to-green-600 text-white w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group flex items-center justify-center"
+              className="bg-gradient-to-r from-green-500 to-green-600 text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group flex items-center justify-center"
             >
-              <Phone size={32} />
+              <Phone size={20} />
               
               {/* 툴팁 */}
               <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -129,11 +129,11 @@ const FloatingConsultButton = () => {
               onClick={handleKakaoClick}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#FEE500] text-gray-800 w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative flex items-center justify-center"
+              className="bg-[#FEE500] text-gray-800 w-10 h-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative flex items-center justify-center"
             >
-              <div className="relative w-8 h-8">
+              <div className="relative w-5 h-5">
                 <Image
-                  src="/icons/kakao.jpg"
+                  src="/icons/kakaotalk.png"
                   alt="카카오톡"
                   fill
                   className="object-contain"
@@ -152,9 +152,9 @@ const FloatingConsultButton = () => {
               onClick={handleInstagramClick}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group flex items-center justify-center"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group flex items-center justify-center"
             >
-              <Instagram size={32} />
+              <Instagram size={20} />
               
               {/* 툴팁 */}
               <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -168,9 +168,9 @@ const FloatingConsultButton = () => {
               onClick={handleBlogClick}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-white w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative flex items-center justify-center"
+              className="bg-white text-white w-10 h-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative flex items-center justify-center"
             >
-              <div className="relative w-8 h-8">
+              <div className="relative w-5 h-5">
                 <Image
                   src="/icons/blog.png"
                   alt="네이버 블로그"
@@ -191,9 +191,9 @@ const FloatingConsultButton = () => {
               onClick={scrollToTop}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-gray-600 w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 group flex items-center justify-center"
+              className="bg-white text-gray-600 w-10 h-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 group flex items-center justify-center"
             >
-              <ChevronUp size={32} />
+              <ChevronUp size={20} />
               
               {/* 툴팁 */}
               <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">

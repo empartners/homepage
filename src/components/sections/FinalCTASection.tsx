@@ -77,7 +77,7 @@ const FinalCTASection: React.FC<FinalCTASectionProps> = ({
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-left">
             {title}
           </h2>
-          <p className="text-lg md:text-xl text-blue-100 mb-8 text-left leading-relaxed whitespace-pre-line">
+          <p className="text-sm md:text-lg lg:text-xl text-blue-100 mb-8 text-left leading-relaxed whitespace-pre-line">
             {subtitle}
           </p>
           <div className="flex justify-start">
