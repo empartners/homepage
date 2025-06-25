@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Phone, MessageCircle, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 import { COMPANY_CONFIG } from '@/config/company';
-import ConsultationModal from '@/components/common/ConsultationModal';
 
 // 타이핑 효과 컴포넌트
 const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
@@ -47,7 +47,6 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [randomNumber, setRandomNumber] = useState(3);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -105,10 +104,6 @@ const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const handleConsultationClick = () => {
-    setIsModalOpen(true);
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden parallax-element">
@@ -338,12 +333,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </motion.div>
-
-      {/* 상담 모달 */}
-      <ConsultationModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
     </section>
   );
 };

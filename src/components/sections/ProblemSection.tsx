@@ -15,13 +15,10 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import ConsultationModal from '@/components/common/ConsultationModal';
 
 const ProblemSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleConsultationClick = () => {
-    setIsModalOpen(true);
+    window.open('https://empartners.co.kr/slide', '_blank');
   };
 
   const problems = [
@@ -432,12 +429,6 @@ const ProblemSection = () => {
           </div>
         </div>
       </section>
-
-      {/* 상담 모달 */}
-      <ConsultationModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
     </>
   );
 };
