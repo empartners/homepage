@@ -212,6 +212,9 @@ export default function RootLayout({
         {/* 카카오톡 인앱 브라우저 최적화 */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
         <meta name="format-detection" content="telephone=no" />
+
+        {/* 구글 서츠 콘솔 태그 */}
+        <meta name="google-site-verification" content="-HRxITRg8HXC9Qmn_fxQKsgfDYBZjKDAGANhwUaOx8w" />
         
         {/* 카카오톡 인앱 브라우저 CSS 수정 */}
         <style dangerouslySetInnerHTML={{
