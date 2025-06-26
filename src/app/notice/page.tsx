@@ -32,7 +32,7 @@ const NoticeContent = () => {
             <div className="flex justify-center mb-6">
               <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm border border-white/20">
                 <Bell className="w-12 h-12 text-white" />
-              </div>
+          </div>
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">공지사항</h2>
             <p className="text-gray-200 text-lg mb-8">EM파트너스의 최신 소식과 정책자금 정보를 확인하세요</p>
@@ -79,21 +79,21 @@ const NoticeContent = () => {
                         </div>
                       </div>
                       <div className="col-span-1 md:col-span-2 text-center text-xs md:text-sm text-gray-600 hidden md:block">관리자</div>
-                      <div className="col-span-2 md:col-span-2 text-center text-xs md:text-sm text-gray-600">06-22</div>
-                    </div>
+                      <div className="col-span-2 md:col-span-2 text-center text-xs md:text-sm text-gray-600">06-20</div>
+              </div>
                   </button>
                   
                   {/* 게시글 상세 내용 (토글) */}
                   {openNoticeIndex === 0 && (
-                    <div className="px-6 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
+                    <div className="px-4 md:px-8 lg:px-12 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
                       <div className="prose max-w-none">
                         <div className="mb-4">
                           <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">정책자금 진행 절차안내</h3>
                           <div className="flex items-center space-x-4 text-xs md:text-sm text-gray-600 mb-4">
                             <span>작성자: 관리자</span>
-                            <span>작성일: 2025-06-22</span>
-                          </div>
-                        </div>
+                            <span>작성일: 2025-06-20</span>
+              </div>
+            </div>
                         
                         <div className="text-gray-700 leading-relaxed text-sm md:text-base">
                           <p className="mb-4">EM파트너스의 정책자금 컨설팅은 아래와 같은 절차로 진행됩니다:</p>
@@ -110,7 +110,7 @@ const NoticeContent = () => {
                             <p className="text-blue-800 text-sm md:text-base">
                               <strong>→ 평균 소요기간은 2주~4주입니다.</strong> 대표님 일정에 맞춰 탄력적으로 조정 가능합니다.
                             </p>
-                          </div>
+          </div>
 
                           <p className="text-gray-700 text-sm md:text-base">
                             자세한 컨설팅 및 자금 상담은 고객센터를 통해 접수 부탁드립니다.
@@ -150,7 +150,7 @@ const NoticeContent = () => {
                   
                   {/* 게시글 상세 내용 (토글) */}
                   {openNoticeIndex === 1 && (
-                    <div className="px-6 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
+                    <div className="px-4 md:px-8 lg:px-12 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
                       <div className="prose max-w-none">
                         <div className="mb-4">
                           <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">📢 정책자금 신청, 승인의 첫 걸음은 타이밍 전략입니다</h3>
@@ -226,6 +226,89 @@ const NoticeContent = () => {
                             <li>맞춤 타이밍 전략 설계</li>
                             <li>신청 전 최종 서류 점검</li>
                           </ul>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div>
+                  <button 
+                    onClick={() => toggleNotice(2)}
+                    className="w-full px-3 md:px-6 py-3 md:py-4 hover:bg-gray-50 transition-colors text-left"
+                  >
+                    <div className="grid grid-cols-12 gap-2 md:gap-4 items-center">
+                      <div className="col-span-1 text-center text-xs md:text-sm text-gray-600">3</div>
+                      <div className="col-span-8 md:col-span-7">
+                        <div className="flex items-center space-x-1 md:space-x-2">
+                          <span className="bg-green-100 text-green-800 px-1 md:px-2 py-1 rounded text-xs font-medium">
+                            안내
+                          </span>
+                          <h4 className="text-gray-900 font-medium hover:text-blue-600 text-xs md:text-base truncate">
+                            📢 [공지사항] 이엠파트너스 맞춤형 정책자금 가이드 제공 안내
+                          </h4>
+                          {openNoticeIndex === 2 ? (
+                            <ChevronUp className="w-3 md:w-4 h-3 md:h-4 text-gray-500 ml-1 md:ml-2 flex-shrink-0" />
+                          ) : (
+                            <ChevronDown className="w-3 md:w-4 h-3 md:h-4 text-gray-500 ml-1 md:ml-2 flex-shrink-0" />
+                          )}
+                        </div>
+                      </div>
+                      <div className="col-span-1 md:col-span-2 text-center text-xs md:text-sm text-gray-600 hidden md:block">관리자</div>
+                      <div className="col-span-2 md:col-span-2 text-center text-xs md:text-sm text-gray-600">06-26</div>
+                    </div>
+                  </button>
+                  
+                  {/* 게시글 상세 내용 (토글) */}
+                  {openNoticeIndex === 2 && (
+                    <div className="px-4 md:px-8 lg:px-12 py-6 bg-gray-50 border-t border-gray-200 max-h-96 overflow-y-auto">
+                      <div className="prose max-w-none">
+                        <div className="mb-4">
+                          <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">📢 [공지사항] 이엠파트너스 맞춤형 정책자금 가이드 제공 안내</h3>
+                          <div className="flex items-center space-x-4 text-xs md:text-sm text-gray-600 mb-4">
+                            <span>작성자: 관리자</span>
+                            <span>작성일: 2025-06-26</span>
+                          </div>
+                        </div>
+                        
+                        <div className="text-gray-700 leading-relaxed space-y-4 text-sm md:text-base">
+                          <p>안녕하세요.<br/>
+                          정책자금 전문 컨설팅 기업 이엠파트너스 입니다.</p>
+                          
+                          <p>대표님의 상황에 맞는 정책자금 종류 및 추천 상품 가이드를<br/>
+                          PPT 형식으로 정리하여 제공 해드리는 맞춤형 서비스가 운영 중입니다.</p>
+                          
+                          <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
+                            <h4 className="font-semibold text-gray-900 mb-3 text-sm md:text-base">✅ 서비스 안내</h4>
+                            <div className="space-y-2 text-gray-900 text-sm md:text-base">
+                              <p>상담 내용을 기반으로<br/>
+                              &nbsp;&nbsp;👉 대표님께 적합한 정책자금 유형 및 전략 가이드를 제작해드립니다.</p>
+                              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PPT 자료 형식으로 구성되어,<br/>
+                              &nbsp;&nbsp;👉 한눈에 보기 쉽고 기관 제출용으로도 활용 가능합니다.</p>
+                              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오톡 채널 추가 후 요청 주시면<br/>
+                              &nbsp;&nbsp;👉 상담 내용을 바탕으로 전문가가 직접 제작하여 발송해드립니다.</p>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                            <h4 className="font-semibold text-gray-900 mb-3 text-sm md:text-base">📲 이용 방법</h4>
+                            <ol className="list-decimal list-inside space-y-1 text-gray-900 text-sm md:text-base">
+                              <li>카카오톡 채널 [EM파트너스] 추가<br/>
+                              &nbsp;&nbsp;&nbsp;➡ <a href="http://pf.kakao.com/_xokkxkG" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">http://pf.kakao.com/_xokkxkG</a></li>
+                              <li>상담 또는 요청 메시지 전송</li>
+                              <li>정책자금 가이드 PPT 수령</li>
+                            </ol>
+                          </div>
+                          
+                          <div className="mt-6">
+                            <p className="font-medium text-gray-900">정책자금의 방향이 막막하신가요?</p>
+                            <p>대표님의 업종·매출·신용 등을 고려한 맞춤형 자금 전략을 지금 바로 받아보세요.</p>
+                          </div>
+                          
+                          <div className="mt-6 text-center">
+                            <p className="font-medium text-blue-800">이엠파트너스는 항상 대표님의 성공을 응원합니다.</p>
+                            <p className="text-gray-600">감사합니다.</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -321,7 +404,7 @@ const NoticeContent = () => {
                   )}
                 </button>
                 {openFaqIndex === index && (
-                  <div className="px-4 md:px-6 pb-3 md:pb-4 border-t border-gray-100">
+                  <div className="px-4 md:px-8 lg:px-12 pb-3 md:pb-4 border-t border-gray-100">
                     <p className="text-gray-600 leading-relaxed pt-3 md:pt-4 text-sm md:text-base">{faq.answer}</p>
                   </div>
                 )}
